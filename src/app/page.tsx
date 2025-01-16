@@ -6,7 +6,7 @@ import ArtistsList from "./components/ArtistsList"
 export default function Home() {
   return (
     <div>
-      <h1>作成途中</h1>
+      <h1 className="text-5xl">作成途中</h1>
       <Image src={Live} alt='Live picture' className='' />
       <Link
         className='text-blue-700 underline text-4xl hover:bg-sky-200'
