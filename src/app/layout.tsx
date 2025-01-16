@@ -11,7 +11,7 @@ import "./globals.css";
 export default function RootLayout({
   children,
 }: {
-  children: ReactNode;
+  children: ReactNode
 }) {
   return (
     <html lang='en'>
