@@ -5,15 +5,15 @@ export const metadata: Metadata = {
   title: "Open Live",
 };
 import "./globals.css";
-export default function RootLayout({folder, children }: {folder:ReactNode, children: ReactNode }) {
+export default function RootLayout({children }: {children: ReactNode }) {
   return (
     <html lang='en'>
       
       <body className="bg-red-100">
-      {folder}
+      
       <div className='fixed top-0 left-0 right-0 flex items-end bg-gradient-to-t bg-red-100 text-black/60'>
         <Link href="./" className='text-5xl text-center'>Openlive</Link>
-        <Link href="./settings" className='ml-auto'>
+        <Link href="./" className='ml-auto'>
         <button className="text-xl">Details</button>
         </Link>
     
