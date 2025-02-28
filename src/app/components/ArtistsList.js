@@ -1,4 +1,6 @@
+// src/app/components/ArtistsList.js
 import Link from "next/link";
+// import Image from "next/image";
 
 export default function ArtistsList() {
   const artists = [
@@ -6,7 +8,7 @@ export default function ArtistsList() {
       name: "アジカン",
       university: "九州工業大学",
       genre: "Alternative Rock",
-      image: "/images/artist1.jpg", // Placeholder - will use dynamic images in real implementation
+      image: "/images/artist1.jpg", // プレースホルダー - 実際の実装では動的画像を使用
     },
     {
       name: "04 Limited Sazabys",
@@ -40,46 +42,75 @@ export default function ArtistsList() {
     },
   ];
 
-  // Function to get a placeholder image if artist image doesn't exist
+  // アーティスト画像がない場合のプレースホルダー画像取得
   const getPlaceholderImage = (index) => {
-    const colors = ["purple", "indigo", "pink", "red", "orange", "amber"];
+    const colors = [
+      "from-purple-400 to-pink-400",
+      "from-indigo-400 to-cyan-400",
+      "from-pink-400 to-rose-400",
+      "from-red-400 to-orange-400",
+      "from-orange-400 to-amber-400",
+      "from-teal-400 to-emerald-400",
+    ];
     const colorIndex = index % colors.length;
-    return `bg-${colors[colorIndex]}-100`;
+    return `bg-gradient-to-br ${colors[colorIndex]}`;
   };
 
   return (
-    <section className='py-12 bg-gray-50'>
-      <div className='container mx-auto'>
-        <h2 className='text-3xl font-bold'>Bands</h2>
+    <section className='py-16 md:py-20 bg-gray-50'>
+      <div className='container mx-auto px-4'>
+        <h2 className='section-title'>出演バンド</h2>
+        <p className='text-gray-600 mb-10 max-w-2xl'>
+          15大学から集まった精鋭バンドたちが、一日限りの特別なステージを披露します。
+          それぞれ個性あふれるパフォーマンスをお楽しみください。
+        </p>
 
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8'>
           {artists.map((artist, index) => (
-            <div
+            <Link
+              href={`/artists/${encodeURIComponent(artist.name)}`}
               key={index}
-              className='group relative overflow-hidden rounded-xl bg-white shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1'
+              className='group artist-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl'
             >
               <div className='h-48 overflow-hidden'>
-                {/* Will use real images in production; for now, show colored backgrounds */}
+                {/* 実際の実装では実際の画像を使用。今はカラフルな背景を表示 */}
                 <div
-                  className={`w-full h-full flex items-center justify-center ${getPlaceholderImage(
+                  className={`w-full h-full artist-image flex items-center justify-center ${getPlaceholderImage(
                     index
                   )}`}
                 >
-                  <span className='text-5xl'>🎵</span>
+                  <span className='text-6xl'>🎵</span>
                 </div>
               </div>
 
-              <div className='p-6'>
-                <span className='inline-block px-3 py-1 text-xs font-semibold rounded-full bg-purple-100 text-purple-800 mb-3'>
-                  {artist.genre}
-                </span>
+              <div className='p-5'>
+                <div className='flex justify-between items-start mb-3'>
+                  <span className='inline-block px-3 py-1 text-xs font-semibold rounded-full bg-purple-100 text-purple-800'>
+                    {artist.genre}
+                  </span>
+                  <svg
+                    className='w-5 h-5 text-gray-400 group-hover:text-purple-600 transition-colors'
+                    fill='none'
+                    stroke='currentColor'
+                    viewBox='0 0 24 24'
+                  >
+                    <path
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      strokeWidth='2'
+                      d='M14 5l7 7m0 0l-7 7m7-7H3'
+                    />
+                  </svg>
+                </div>
+
                 <h3 className='text-xl font-bold mb-2 text-gray-900 group-hover:text-purple-600 transition-colors'>
                   {artist.name}
                 </h3>
-                <div className='flex items-center text-gray-600 mb-4'>
+
+                <div className='flex items-center text-gray-600 mb-1'>
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
-                    className='h-4 w-4 mr-2'
+                    className='h-4 w-4 mr-2 text-gray-500'
                     fill='none'
                     viewBox='0 0 24 24'
                     stroke='currentColor'
@@ -91,23 +122,11 @@ export default function ArtistsList() {
                       d='M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4'
                     />
                   </svg>
-                  <span>{artist.university}</span>
+                  <span className='text-sm'>{artist.university}</span>
                 </div>
-                <Link
-                  href={`/artists/${encodeURIComponent(artist.name)}`}
-                  className='inline-block mt-2 text-sm font-semibold text-purple-600 hover:text-purple-800 transition-colors'
-                >
-                  View Details →
-                </Link>
               </div>
-            </div>
+            </Link>
           ))}
-        </div>
-
-        <div className='mt-12 text-center'>
-          <Link href='/timetable' className='button-primary'>
-            time table
-          </Link>
         </div>
       </div>
     </section>
