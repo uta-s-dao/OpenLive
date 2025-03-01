@@ -36,31 +36,31 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <nav className='hidden md:flex space-x-8 text-gray-700'>
               <Link
                 href='/'
-                className='hover:text-purple-600 transition-colors font-medium'
+                className='hover:text-red-600 transition-colors font-medium'
               >
                 ホーム
               </Link>
               <Link
                 href='/artists'
-                className='hover:text-purple-600 transition-colors font-medium'
+                className='hover:text-red-600 transition-colors font-medium'
               >
                 アーティスト
               </Link>
               <Link
                 href='/timetable'
-                className='hover:text-purple-600 transition-colors font-medium'
+                className='hover:text-red-600 transition-colors font-medium'
               >
                 タイムテーブル
               </Link>
               <Link
                 href='/venue'
-                className='hover:text-purple-600 transition-colors font-medium'
+                className='hover:text-red-600 transition-colors font-medium'
               >
                 会場情報
               </Link>
               <Link
                 href='/about'
-                className='hover:text-purple-600 transition-colors font-medium'
+                className='hover:text-red-600 transition-colors font-medium'
               ></Link>
             </nav>
 
@@ -75,7 +75,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <div className='container mx-auto px-4'>
             <div className='flex flex-col md:flex-row justify-between'>
               <div className='mb-8 md:mb-0'>
-                <h2 className='text-2xl font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4'>
+                <h2 className='text-2xl font-black bg-gradient-to-r from-red-600 to-pink-400 bg-clip-text text-transparent mb-4'>
                   OPENLIVE
                 </h2>
                 <p className='text-gray-400 max-w-md'>
@@ -83,7 +83,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 </p>
                 <div className='mt-4 flex space-x-4'>
                   <a
-                    href='#'
+                    href='https://www.instagram.com/open_live_2128'
                     className='text-gray-400 hover:text-white transition-colors'
                   >
                     <svg

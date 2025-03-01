@@ -58,7 +58,7 @@ export default function HighlightsSection() {
     <section className='py-20 bg-white'>
       <div className='container mx-auto px-4'>
         <h2 className='text-2xl md:text-3xl font-bold mb-6 text-center text-gray-900'>
-          Previous Festivals
+          ハイライト
         </h2>
 
         {/* Tabs */}
@@ -69,7 +69,7 @@ export default function HighlightsSection() {
                 key={index}
                 className={`px-6 py-3 text-sm font-medium ${
                   activeTab === index
-                    ? "bg-purple-600 text-white"
+                    ? "bg-red-600 text-white"
                     : "bg-white text-gray-700 hover:bg-gray-50"
                 }`}
                 onClick={() => setActiveTab(index)}
@@ -85,8 +85,8 @@ export default function HighlightsSection() {
           {/* Stats */}
           <div className='lg:col-span-1'>
             <div className='bg-white rounded-xl shadow-md p-6 h-full'>
-              <h3 className='text-2xl font-bold mb-4 text-purple-600'>
-                {currentHighlight.year} Highlights
+              <h3 className='text-2xl font-bold mb-4 text-red-600'>
+                {currentHighlight.year}
               </h3>
               <p className='text-gray-700 mb-6'>
                 {currentHighlight.description}
@@ -95,7 +95,7 @@ export default function HighlightsSection() {
               <div className='space-y-4'>
                 {currentHighlight.stats.map((stat, index) => (
                   <div key={index} className='flex items-center'>
-                    <div className='w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 mr-4'>
+                    <div className='w-12 h-12 rounded-full bg-red-100 flex items-center justify-center text-red-600 mr-4'>
                       <svg
                         xmlns='http://www.w3.org/2000/svg'
                         className='h-6 w-6'

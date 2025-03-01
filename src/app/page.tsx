@@ -1,9 +1,10 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import ArtistsList from "./components/ArtistsList";
+// import ArtistsList from "./components/ArtistsList";
 import CountdownTimer from "./components/CountdownTimer";
 import HighlightsSection from "./components/HighlightsSection";
+import ResponsiveTimeTable from "./components/timeTableData";
 
 export default function Home() {
   // イベント日を将来の日付に設定
@@ -17,10 +18,12 @@ export default function Home() {
           {/* 画像にオーバーレイを追加して視認性を向上 */}
           <div className='absolute inset-0 bg-gradient-to-b from-purple-900/40 via-purple-800/30 to-black/70 z-10'></div>
           <Image
-            src='/S__23707650.jpg'
+            src='/openlive.jpg'
             alt='Openlive Festival'
+            sizes='(max-width: 768px) 100vw, 50vw'
+            quality={90}
             fill
-            className='object-cover'
+            className='object-cover animate-pulse'
             priority
           />
         </div>
@@ -83,92 +86,10 @@ export default function Home() {
         </div>
       </section>
       {/* タイムテーブルプレビュー */}
-      <section className='py-16 md:py-20 bg-gray-50'>
-        <div className='container mx-auto px-4'>
-          <h2 className='section-title'>タイムテーブル</h2>
-          <p className='text-gray-600 mb-8'>2025年9月10日（土）10:30〜17:30</p>
+      <ResponsiveTimeTable />
 
-          <div className='bg-white rounded-xl shadow-md overflow-hidden'>
-            <div className='overflow-x-auto'>
-              <table className='min-w-full divide-y divide-gray-200'>
-                <thead className='bg-gray-50'>
-                  <tr>
-                    <th className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
-                      時間
-                    </th>
-                    <th className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
-                      バンド名
-                    </th>
-                    <th className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider hidden md:table-cell'>
-                      大学
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className='bg-white divide-y divide-gray-200'>
-                  <tr className='hover:bg-gray-50'>
-                    <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-500'>
-                      10:30
-                    </td>
-                    <td className='px-6 py-4 whitespace-nowrap text-sm font-bold'>
-                      オープニングセレモニー
-                    </td>
-                    <td className='px-6 py-4 whitespace-nowrap text-sm text-gray-500 hidden md:table-cell'>
-                      -
-                    </td>
-                  </tr>
-                  <tr className='hover:bg-gray-50'>
-                    <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-500'>
-                      11:00
-                    </td>
-                    <td className='px-6 py-4 whitespace-nowrap text-sm font-bold'>
-                      アジカン
-                    </td>
-                    <td className='px-6 py-4 whitespace-nowrap text-sm text-gray-500 hidden md:table-cell'>
-                      九州工業大学
-                    </td>
-                  </tr>
-                  <tr className='hover:bg-gray-50'>
-                    <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-500'>
-                      11:45
-                    </td>
-                    <td className='px-6 py-4 whitespace-nowrap text-sm font-bold'>
-                      ポルカドットスティングレイ
-                    </td>
-                    <td className='px-6 py-4 whitespace-nowrap text-sm text-gray-500 hidden md:table-cell'>
-                      産業医科大学
-                    </td>
-                  </tr>
-                  <tr className='hover:bg-gray-50'>
-                    <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-500'>
-                      12:30
-                    </td>
-                    <td className='px-6 py-4 whitespace-nowrap text-sm font-bold'>
-                      クリープハイプ
-                    </td>
-                    <td className='px-6 py-4 whitespace-nowrap text-sm text-gray-500 hidden md:table-cell'>
-                      九州女子大学
-                    </td>
-                  </tr>
-                  <tr className='hover:bg-gray-50'>
-                    <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-500'>
-                      13:15
-                    </td>
-                    <td className='px-6 py-4 whitespace-nowrap text-sm font-bold'>
-                      ONE OK ROCK
-                    </td>
-                    <td className='px-6 py-4 whitespace-nowrap text-sm text-gray-500 hidden md:table-cell'>
-                      北九州市立大学
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Artists Section */}
-      <ArtistsList />
+      {/* Artists Section
+      <ArtistsList /> */}
 
       {/* 会場情報セクション */}
       <section className='py-16 md:py-20 bg-white'>
@@ -198,7 +119,7 @@ export default function Home() {
               <div className='space-y-4 mb-6'>
                 <div className='flex items-start'>
                   <svg
-                    className='w-5 h-5 text-purple-600 mt-0.5 mr-3 flex-shrink-0'
+                    className='w-5 h-5 text-red-500 mt-0.5 mr-3 flex-shrink-0'
                     fill='none'
                     stroke='currentColor'
                     viewBox='0 0 24 24'
@@ -214,7 +135,7 @@ export default function Home() {
                 </div>
                 <div className='flex items-start'>
                   <svg
-                    className='w-5 h-5 text-purple-600 mt-0.5 mr-3 flex-shrink-0'
+                    className='w-5 h-5 text-red-500 mt-0.5 mr-3 flex-shrink-0'
                     fill='none'
                     stroke='currentColor'
                     viewBox='0 0 24 24'
@@ -230,7 +151,7 @@ export default function Home() {
                 </div>
                 <div className='flex items-start'>
                   <svg
-                    className='w-5 h-5 text-purple-600 mt-0.5 mr-3 flex-shrink-0'
+                    className='w-5 h-5 text-red-500 mt-0.5 mr-3 flex-shrink-0'
                     fill='none'
                     stroke='currentColor'
                     viewBox='0 0 24 24'
@@ -255,22 +176,6 @@ export default function Home() {
       </section>
       {/* Highlights from Previous Years */}
       <HighlightsSection />
-
-      {/* お問い合わせセクション */}
-      <section className='py-16 bg-gradient-to-r from-purple-400 to-pink-300 text-white'>
-        <div className='container mx-auto px-4 text-center'>
-          <h2 className='text-3xl font-bold mb-6'>お問い合わせ</h2>
-          <p className='mb-8 max-w-2xl mx-auto'>
-            チケット、出演、スポンサーなどに関するお問い合わせは下記のボタンからお願いします。
-          </p>
-          <Link
-            href='/contact'
-            className='button-outline bg-white/10 hover:bg-white/20'
-          >
-            お問い合わせフォーム
-          </Link>
-        </div>
-      </section>
     </>
   );
 }
