@@ -46,7 +46,7 @@ body {
 
   .section-title::after {
     content: "";
-    @apply absolute left-0 bottom-0 w-2/3 h-1 bg-gradient-to-r from-red-600 to-orange-200 rounded-full;
+    @apply absolute left-0 bottom-0 w-full h-1 bg-gradient-to-r from-red-600 to-red-300 rounded-full;
   }
 }
 

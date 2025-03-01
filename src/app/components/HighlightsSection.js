@@ -57,9 +57,7 @@ export default function HighlightsSection() {
   return (
     <section className='py-20 bg-white'>
       <div className='container mx-auto px-4'>
-        <h2 className='text-2xl md:text-3xl font-bold mb-6 text-center text-gray-900'>
-          ハイライト
-        </h2>
+        <h2 className='section-title'>ハイライト</h2>
 
         {/* Tabs */}
         <div className='flex justify-center mb-8'>

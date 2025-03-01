@@ -17,15 +17,18 @@ export default function Home() {
         <div className='absolute inset-0 z-0'>
           {/* 画像にオーバーレイを追加して視認性を向上 */}
           <div className='absolute inset-0 bg-gradient-to-b from-purple-900/40 via-purple-800/30 to-black/70 z-10'></div>
-          <Image
-            src='/openlive.jpg'
-            alt='Openlive Festival'
-            sizes='(max-width: 768px) 100vw, 50vw'
-            quality={90}
-            fill
-            className='object-cover animate-pulse'
-            priority
-          />
+          <div className='relative w-full h-full'>
+            <Image
+              src='/openlive.jpg'
+              alt='Openlive Festival'
+              sizes='(max-width: 768px) 100vw, 50vw'
+              quality={90}
+              fill
+              className='object-cover animate-pulse'
+              priority
+            />
+            <div className='absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/70 to-transparent pointer-events-none'></div>
+          </div>
         </div>
         <div className='container relative z-10 text-center px-4 py-8 animate-fade-in'>
           <h1 className='text-4xl sm:text-5xl md:text-7xl font-black bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent'>
@@ -42,7 +45,7 @@ export default function Home() {
 
       {/* 概要セクション */}
       <section className='py-4 md:py-6 bg-white'>
-        <div className='container mx-auto px-4'>
+        <div className='container mx-auto '>
           <div className='flex flex-row items-center gap-2 md:gap-4'>
             <div className='w-full md:w-1/2 order-2 md:order-1'>
               <h2 className='section-title'>オープンライブについて</h2>
