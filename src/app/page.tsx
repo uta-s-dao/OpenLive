@@ -24,7 +24,7 @@ export default function Home() {
               sizes='(max-width: 768px) 100vw, 50vw'
               quality={90}
               fill
-              className='object-cover animate-pulse'
+              className='object-cover animate-pulse-slow'
               priority
             />
             <div className='absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/70 to-transparent pointer-events-none'></div>
