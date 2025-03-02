@@ -1,6 +1,5 @@
 // src/app/layout.tsx
 "use client";
-import type { Metadata } from "next";
 import { ReactNode, useState } from "react";
 import Link from "next/link";
 import "./globals.css";
