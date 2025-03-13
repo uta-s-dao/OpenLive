@@ -38,7 +38,7 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
                 className='text-2xl md:text-3xl font-black bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent'
               >
                 <span className='relative bg-gradient-to-t mr-5 from-red-400 via-red-600 to-yellow-400 bg-clip-text text-transparent'>
-                  OPENLIVE
+                  オープンライブ
                 </span>
               </Link>
 
@@ -170,7 +170,7 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
                       </svg>
                     </a>
                     <a
-                      href='https://www.youtube.com/channel/YOUTUBEUSER'
+                      href='https://www.youtube.com/@OpenLive2025'
                       className='text-red-600 hover:text-red-600 block transition-colors'
                     >
                       <svg
@@ -235,7 +235,7 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
                 </svg>
               </a>
               <a
-                href='https://www.youtube.com/channel/YOUTUBEUSER'
+                href='https://www.youtube.com/@OpenLive2025'
                 className='text-red-600 hover:text-red-600 block transition-colors'
               >
                 <svg

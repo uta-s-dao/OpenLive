@@ -13,6 +13,9 @@ export default function Home() {
   return (
     <>
       {/* ヒーローセクション */}
+      <div className='text-4xl text-bold text-center my-20'>
+        現在作成中です。
+      </div>
       <section className='relative min-h-[90vh] sm:h-screen flex items-center justify-center overflow-hidden'>
         <div className='absolute inset-0 z-0'>
           {/* 画像にオーバーレイを追加して視認性を向上 */}
@@ -31,8 +34,8 @@ export default function Home() {
           </div>
         </div>
         <div className='container relative z-10 text-center px-4 py-8 animate-fade-in'>
-          <h1 className='text-4xl sm:text-5xl md:text-7xl font-black bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent'>
-            OPENLIVE
+          <h1 className='text-4xl sm:text-5xl md:text-7xl font-black bg-gradient-to-r from-red-500 to-red-400 bg-clip-text text-transparent'>
+            オープンライブ
             <span className='text-red-450'>2025</span>
           </h1>
           <p className='text-lg md:text-xl text-blue mb-8 max-w-2xl mx-auto drop-shadow-md font-medium'>
