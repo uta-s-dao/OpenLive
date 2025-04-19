@@ -2,14 +2,9 @@
 import Link from "next/link";
 import Image from "next/image";
 // import ArtistsList from "./components/ArtistsList";
-import CountdownTimer from "./components/CountdownTimer";
 import HighlightsSection from "./components/HighlightsSection";
-import ResponsiveTimeTable from "./components/timeTableData";
 
 export default function Home() {
-  // イベント日を将来の日付に設定
-  const eventDate = new Date("2025-09-10T10:30:00");
-
   return (
     <>
       {/* ヒーローセクション */}
@@ -34,15 +29,18 @@ export default function Home() {
           </div>
         </div>
         <div className='container relative z-10 text-center px-4 py-8 animate-fade-in'>
-          <h1 className='text-4xl sm:text-5xl md:text-7xl font-black bg-gradient-to-r from-red-500 to-red-400 bg-clip-text text-transparent'>
-            オープンライブ
-            <span className='text-red-450'>2025</span>
+          <h1
+            className='text-5xl pt-40 sm:text-6xl md:text-8xl text-[#00E5FF] font-bold
+           drop-shadow-lg '
+          >
+            学生の今が,
           </h1>
-          <p className='text-lg md:text-xl text-blue mb-8 max-w-2xl mx-auto drop-shadow-md font-medium'>
-            キャンパスの枠を超えて、音楽でつながる
+          <h1 className='text-5xl pt-1 sm:text-6xl md:text-8xl  drop-shadow-lg text-[#00E5FF] font-bold'>
+            音になる
+          </h1>
+          <p className='text-2xl md:text-2xl text-blue-200 pt-10 mb-8 max-w-2xl mx-auto drop-shadow-md font-medium'>
+            2025-8-20
           </p>
-
-          <CountdownTimer targetDate={eventDate} />
         </div>
       </section>
 
@@ -91,8 +89,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* タイムテーブルプレビュー */}
-      <ResponsiveTimeTable />
 
       {/* Artists Section
       <ArtistsList /> */}
@@ -117,9 +113,9 @@ export default function Home() {
                 福岡 ビートステーション
               </h3>
               <p className='text-gray-700 mb-4'>
-                福岡市中央区渡辺通4-8-28 F.EPARKビル4F/5F
+                福岡市中央区渡辺通4-11-4
                 <br />
-                地下鉄空港線「天神駅」から徒歩5分
+                西鉄薬院駅から徒歩1〜2分
               </p>
 
               <div className='space-y-4 mb-6'>
@@ -137,7 +133,7 @@ export default function Home() {
                       d='M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z'
                     />
                   </svg>
-                  <span>収容人数: 約600名</span>
+                  <span>収容人数: 365名</span>
                 </div>
                 <div className='flex items-start'>
                   <svg
@@ -173,7 +169,10 @@ export default function Home() {
                 </div>
               </div>
 
-              <Link href='/venue' className='button-secondary'>
+              <Link
+                href='https://www.google.com/maps/place/%E3%80%92810-0004+%E7%A6%8F%E5%B2%A1%E7%9C%8C%E7%A6%8F%E5%B2%A1%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA%E6%B8%A1%E8%BE%BA%E9%80%9A%EF%BC%94%E4%B8%81%E7%9B%AE%EF%BC%91%EF%BC%91%E2%88%92%EF%BC%94+BEAT+STATION/@33.5839722,130.4015995,16z/data=!4m6!3m5!1s0x35419199451e2459:0xdf0388402e1e3db7!8m2!3d33.5839722!4d130.4015995!16s%2Fg%2F1td7l23p?utm_campaign=ml-sul'
+                className='button-secondary'
+              >
                 会場の詳細を見る
               </Link>
             </div>
