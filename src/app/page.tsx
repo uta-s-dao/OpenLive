@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 // import ArtistsList from "./components/ArtistsList";
+import ResponsiveTimeTable from "./components/timeTableData";
 import HighlightsSection from "./components/HighlightsSection";
 
 export default function Home() {
@@ -43,7 +44,6 @@ export default function Home() {
           </p>
         </div>
       </section>
-
       {/* 概要セクション */}
       <section className='py-4 md:py-6 bg-white'>
         <div className='container mx-auto '>
@@ -90,9 +90,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Artists Section
-      <ArtistsList /> */}
-
+      {/* <ArtistsList /> */}
+      <ResponsiveTimeTable />
       {/* 会場情報セクション */}
       <section className='py-16 md:py-20 bg-white'>
         <div className='container mx-auto px-4'>
