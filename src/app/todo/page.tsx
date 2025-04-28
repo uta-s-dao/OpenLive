@@ -17,15 +17,15 @@ interface Slot {
 
 // ステージごとの色の定義
 const stageColors: Record<Stage, string> = {
-  MEGAHERTZ: "bg-purple-500", // 紫色
-  UN: "bg-yellow-500", // 黄色
-  CleveRsound: "bg-blue-500", // 青色
+  MEGAHERTZ: "bg-purple-200", // 紫色
+  UN: "bg-yellow-200", // 黄色
+  CleveRsound: "bg-blue-200", // 青色
 };
 
 // 背景色ではなく、枠線と文字色を使用
 const stageCellColors: Record<Stage, string> = {
   MEGAHERTZ: "text-purple-700", // 紫色のアクセント
-  UN: "text-yellow-700", // 黄色のアクセント
+  UN: "text-yellow-600", // 黄色のアクセント
   CleveRsound: " text-blue-700", // 青色のアクセント
 };
 // ステージ配列（順序制御用）
@@ -67,7 +67,7 @@ const timetable: Slot[] = [
     time: "13:30–14:00",
     MEGAHERTZ: { university: "産医大", band: "相対性理論" },
     UN: { university: "So&Soes", band: "ヤバT" },
-    CleveRsound: { university: "Free Apirits", band: "HIRO COMPLEX" },
+    CleveRsound: { university: "Free Apirits", band: "HERO COMPLEX" },
   },
   {
     time: "14:00–14:30",
@@ -107,7 +107,7 @@ const timetable: Slot[] = [
   },
   {
     time: "16:30–17:00",
-    MEGAHERTZ: { university: "So&Soes", band: "ウルフルズ" },
+    MEGAHERTZ: { university: "So&Soes", band: "KANA-BOON" },
     UN: { university: "So&Soes", band: "the peggies" },
     CleveRsound: { university: "福教大", band: "あいくれ" },
   },
@@ -121,11 +121,19 @@ const timetable: Slot[] = [
 
 export default function TimetablePage() {
   return (
-    <div className='container mx-auto px-1 py-3 bg-white'>
-      <h1 className='text-xl text-red-500 font-bold py-3 text-center bg-red-50'>
-        未確定 CIRCUIT 2025
-      </h1>
-
+    <div className='container mx-auto px-1 pt-3 bg-white'>
+      <div
+        style={{
+          background:
+            "linear-gradient(135deg, #d3d3d3 0%, #d8b4fe 30%, #fef08a 55%, #93c5fd 90%)",
+        }}
+      >
+        <h1 className='text-xl font-bold pt-3 text-center '>CIRCUIT 2025</h1>
+        <div className='flex justify-center items-center '>
+          <div className='text-center'>5/17(Stu)</div>
+          <div className='pl-10'>TICKETS ¥1500</div>
+        </div>
+      </div>
       {/* 背景画像を適用するコンテナ */}
       <div className='relative'>
         {/* 背景画像のdiv */}
@@ -142,15 +150,15 @@ export default function TimetablePage() {
         {/* 横スクロール可能なテーブルコンテナ */}
         <div className='relative z-10 overflow-x-auto pb-2'>
           <table className='w-full bg-transparent rounded-lg shadow text-xs border-spacing-y-4'>
-            <thead className='bg-gray-400 text-white sticky top-0'>
+            <thead className='bg-gray-00 text-white sticky top-0'>
               <tr>
-                <th className='py-2 px-1 text-center whitespace-nowrap'>
-                  time
+                <th className='py-2 px-1 text-black text-left whitespace-nowrap'>
+                  Time
                 </th>
                 {stages.map((stage) => (
                   <th
                     key={stage}
-                    className={`my-2 px-1 text-xl whitespace-nowrap text-center text-white font-bold ${stageColors[stage]}`}
+                    className={`my-2 px-1 text-xl whitespace-nowrap text-center ${stageCellColors[stage]} font-bold ${stageColors[stage]}`}
                   >
                     {stage}
                   </th>

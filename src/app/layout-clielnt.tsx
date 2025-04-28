@@ -25,6 +25,7 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
     { href: "/timetable", label: "タイムテーブル" },
     { href: "/venue", label: "会場情報" },
     { href: "/crowdfunding", label: "クラウドファンディング" },
+    { href: "/todo", label: "他の活動" },
   ];
 
   return (
