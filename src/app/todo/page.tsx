@@ -17,9 +17,9 @@ interface Slot {
 
 // ステージごとの色の定義
 const stageColors: Record<Stage, string> = {
-  MEGAHERTZ: "bg-purple-200", // 紫色
-  UN: "bg-yellow-200", // 黄色
-  CleveRsound: "bg-blue-200", // 青色
+  MEGAHERTZ: "bg-purple-100", // 紫色
+  UN: "bg-yellow-100", // 黄色
+  CleveRsound: "bg-blue-100", // 青色
 };
 
 // 背景色ではなく、枠線と文字色を使用
@@ -42,7 +42,7 @@ const timetable: Slot[] = [
   {
     time: "11:30–12:00",
     MEGAHERTZ: { university: "下市", band: "つきみ" },
-    UN: { university: "福教大", band: "sinema staff" },
+    UN: { university: "福教大", band: "SEEPOOL" },
     CleveRsound: { university: "産医大", band: "ヨルシカ" },
   },
   {
@@ -67,17 +67,18 @@ const timetable: Slot[] = [
     time: "13:30–14:00",
     MEGAHERTZ: { university: "産医大", band: "相対性理論" },
     UN: { university: "So&Soes", band: "ヤバT" },
-    CleveRsound: { university: "Free Apirits", band: "HERO COMPLEX" },
+    CleveRsound: { university: "ひびきの", band: "UNISON SQUARE GARDEN" },
   },
   {
     time: "14:00–14:30",
     MEGAHERTZ: { university: "Free Spirits", band: "Age factory" },
     UN: { university: "下市", band: "KALMA" },
-    CleveRsound: { university: "ひびきの", band: "UNISON SQUARE GARDEN" },
+
+    CleveRsound: { university: "Free Spirits", band: "HERO COMPLEX" },
   },
   {
     time: "14:30–15:00",
-    MEGAHERTZ: { university: "福教大", band: "SEAPOOL" },
+    MEGAHERTZ: { university: "福教大", band: "あいくれ" },
     UN: { university: "産医大", band: "オーラル" },
     CleveRsound: { university: "So&Soes", band: "カネヨリマサル" },
   },
@@ -93,29 +94,26 @@ const timetable: Slot[] = [
   {
     time: "15:30–16:00",
     MEGAHERTZ: { university: "So&Soes", band: "SIX LOUNGE" },
-    UN: { university: "福教大", band: "アジカン" },
-    CleveRsound: {
-      university: "ひびきの",
-      band: "Hump Back",
-    },
+    UN: { university: "ひびきの", band: "Hump Back" },
+    CleveRsound: { university: "福教大", band: "sinema staff" },
   },
   {
     time: "16:00–16:30",
     MEGAHERTZ: { university: "Free Spirits", band: "TETORA" },
-    UN: { university: "Free Spirits", band: "KOTORI" },
-    CleveRsound: { university: "福教大", band: "RADWIMPS" },
+    UN: { university: "Free Spirits", band: "ANORAK!" },
+    CleveRsound: { university: "福教大", band: "アジカン" },
   },
   {
     time: "16:30–17:00",
-    MEGAHERTZ: { university: "So&Soes", band: "KANA-BOON" },
-    UN: { university: "So&Soes", band: "the peggies" },
-    CleveRsound: { university: "福教大", band: "あいくれ" },
+    MEGAHERTZ: { university: "Free Spirits", band: "炙りなタウン" },
+    UN: { university: "So&Soes", band: "KANA-BOON" },
+    CleveRsound: { university: "Free Spirits", band: "KOTORI" },
   },
   {
     time: "17:00–17:30",
-    MEGAHERTZ: { university: "-", band: "-" },
-    UN: { university: "産医大", band: "Enth" },
-    CleveRsound: { university: "-", band: "-" },
+    MEGAHERTZ: { university: "福教大", band: "RADWIMPS" },
+    UN: { university: "So&Soes", band: "the peggies" },
+    CleveRsound: { university: "産医大", band: "Enth" },
   },
 ];
 
@@ -152,7 +150,7 @@ export default function TimetablePage() {
           <table className='w-full bg-transparent rounded-lg shadow text-xs border-spacing-y-4'>
             <thead className='bg-gray-00 text-white sticky top-0'>
               <tr>
-                <th className='py-2 px-1 text-black text-left whitespace-nowrap'>
+                <th className='py-2 px-1 text-black bg-gray-200 text-left whitespace-nowrap'>
                   Time
                 </th>
                 {stages.map((stage) => (
