@@ -99,7 +99,7 @@ const timetable: Slot[] = [
   },
   {
     time: "16:00–16:30",
-    MEGAHERTZ: { university: "Free Spirits", band: "TETORA" },
+    MEGAHERTZ: { university: "So&Soes", band: "the peggies" },
     UN: { university: "Free Spirits", band: "ANORAK!" },
     CleveRsound: { university: "福教大", band: "アジカン" },
   },
@@ -112,7 +112,7 @@ const timetable: Slot[] = [
   {
     time: "17:00–17:30",
     MEGAHERTZ: { university: "福教大", band: "RADWIMPS" },
-    UN: { university: "So&Soes", band: "the peggies" },
+    UN: { university: "Free Spirits", band: "TETORA" },
     CleveRsound: { university: "産医大", band: "Enth" },
   },
 ];
