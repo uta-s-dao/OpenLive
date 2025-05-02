@@ -55,13 +55,13 @@ const timetable: Slot[] = [
     time: "12:30–13:00",
     MEGAHERTZ: { university: "So&Soes", band: "ボカロ" },
     UN: { university: "Free Spirits", band: "クリープハイプ" },
-    CleveRsound: { university: "北方", band: "ルサンチマン" },
+    CleveRsound: { university: "下市", band: "ゲスの極み乙女" },
   },
   {
     time: "13:00–13:30",
     MEGAHERTZ: { university: "ひびきの", band: "羊文学" },
     UN: { university: "Free Spirits", band: "フレデリック" },
-    CleveRsound: { university: "下市", band: "ゲスの極み乙女" },
+    CleveRsound: { university: "北方", band: "ルサンチマン" },
   },
   {
     time: "13:30–14:00",
@@ -126,9 +126,7 @@ export default function TimetablePage() {
             "linear-gradient(135deg, #d3d3d3 0%, #d8b4fe 30%, #fef08a 55%, #93c5fd 90%)",
         }}
       >
-        <h1 className='text-xl font-bold pt-3 text-center '>
-          ＊未確定＊　CIRCUIT 2025
-        </h1>
+        <h1 className='text-xl font-bold pt-3 text-center '>CIRCUIT 2025</h1>
         <div className='flex justify-center items-center '>
           <div className='text-center'>5/17(Stu)</div>
           <div className='pl-10'>TICKETS ¥1500</div>
