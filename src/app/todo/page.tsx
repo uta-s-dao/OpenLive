@@ -41,7 +41,7 @@ const timetable: Slot[] = [
   },
   {
     time: "11:30–12:00",
-    MEGAHERTZ: { university: "下市", band: "つきみ" },
+    MEGAHERTZ: { university: "下市", band: "ヤバT" },
     UN: { university: "福教大", band: "SEEPOOL" },
     CleveRsound: { university: "産医大", band: "ヨルシカ" },
   },
@@ -83,7 +83,7 @@ const timetable: Slot[] = [
   },
   {
     time: "15:00–15:30",
-    MEGAHERTZ: { university: "下市", band: "ヤバT" },
+    MEGAHERTZ: { university: "下市", band: "つきみ" },
     UN: { university: "Free Spirits", band: "FURUITS ZIPPER" },
     CleveRsound: {
       university: "ひびきの",
@@ -128,7 +128,7 @@ export default function TimetablePage() {
         <h1 className='text-xl font-bold pt-3 text-center '>CIRCUIT 2025</h1>
         <div className='flex justify-center items-center '>
           <div className='text-center'>5/17(Stu)</div>
-          <div className='pl-10'>TICKETS ¥1500</div>
+          <div className='pl-10'>TICKETS ¥1600</div>
         </div>
       </div>
       {/* 背景画像を適用するコンテナ */}
