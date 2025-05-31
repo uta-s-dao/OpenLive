@@ -19,6 +19,7 @@ export default function Home() {
               alt='Openlive Festival'
               sizes='100vw'
               quality={90}
+              priority
               fill
               className='object-cover animate-pulse-slow'
             />
@@ -30,10 +31,10 @@ export default function Home() {
         </div>
       </section>
       {/* 概要セクション */}
-      <section className='py-4 md:py-6 bg-white'>
+      <section className='py-10 px-4 md:py-6 bg-white'>
         <div className='container mx-auto '>
-          <div className='flex flex-row items-center gap-2 md:gap-4'>
-            <div className='w-full md:w-1/2 order-2 md:order-1'>
+          <div className='flex  items-center '>
+            <div className='w-full order-2 md:order-1'>
               <h2 className='section-title'>オープンライブについて</h2>
               <p className='text-gray-700 mb-6 leading-relaxed'>
                 オープンライブは2022年から開催されている大学軽音楽部のための音楽フェスティバルです。
@@ -44,14 +45,6 @@ export default function Home() {
               </p>
               <div className='flex flex-col sm:flex-row gap-4'></div>
             </div>
-            <div className='md:w-1/2 relative h-80 md:h-96 overflow-hidden rounded-xl shadow-lg order-1 md:order-2'>
-              <Image
-                src='/S__23707650.jpg'
-                alt='Festival audience'
-                fill
-                className='object-cover hover:scale-105 transition-transform duration-700'
-              />
-            </div>
           </div>
         </div>
       </section>
@@ -59,7 +52,7 @@ export default function Home() {
       {/* <ArtistsList /> */}
       <ResponsiveTimeTable />
       {/* 会場情報セクション */}
-      <section className='py-16 md:py-20 bg-white'>
+      <section className='py-10 md:py-0 bg-white'>
         <div className='container mx-auto px-4'>
           <h2 className='section-title'>会場情報</h2>
 

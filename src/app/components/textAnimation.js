@@ -84,7 +84,7 @@ export default function SequentialTextAnimation() {
         }`}
         style={{
           animation: visibleElements.includes(0)
-            ? "pulse-glow 2s ease-in-out infinite alternate"
+            ? " ease-in-out infinite alternate"
             : "none",
         }}
       >
@@ -107,7 +107,7 @@ export default function SequentialTextAnimation() {
       </h1>
 
       <p
-        className={`text-2xl md:text-2xl text-white pt-10 mb-8 max-w-2xl mx-auto drop-shadow-md font-medium transition-all duration-1200 ease-out ${
+        className={`text-2xl md:text-2xl text-white pt-7 mb-8 max-w-2xl mx-auto drop-shadow-md font-medium transition-all duration-1200 ease-out ${
           visibleElements.includes(2)
             ? "opacity-100 transform translate-y-0 scale-100"
             : "opacity-0 transform translate-y-12 scale-80"

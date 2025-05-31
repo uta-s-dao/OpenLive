@@ -52,7 +52,7 @@ export default function ResponsiveTimeTable() {
   ];
 
   return (
-    <div className='bg-white shadow-md overflow-hidden pt-20 container mx-auto px-4'>
+    <div className='bg-white shadow-md overflow-hidden py-10 container mx-auto px-4'>
       <h2 className='section-title'>タイムテーブル</h2>
       {/* PC表示用のテーブル */}
       {!isMobile && (
