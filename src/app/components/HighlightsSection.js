@@ -14,11 +14,6 @@ export default function HighlightsSection() {
         { label: "Bands", value: "12" },
         { label: "Universities", value: "14" },
       ],
-      gallery: [
-        { src: "/S__23707650.jpg", alt: "Crowd at 2024 festival" },
-        { src: "/S__23707650.jpg", alt: "Main stage performance" },
-        { src: "/S__23707650.jpg", alt: "Backstage moments" },
-      ],
     },
 
     {
@@ -29,11 +24,6 @@ export default function HighlightsSection() {
         { label: "Bands", value: "12" },
         { label: "Universities", value: "10" },
       ],
-      gallery: [
-        { src: "/S__23707650.jpg", alt: "2023 festival opening" },
-        { src: "/S__23707650.jpg", alt: "Acoustic performance" },
-        { src: "/S__23707650.jpg", alt: "Audience enjoying the show" },
-      ],
     },
     {
       year: "2022",
@@ -43,11 +33,6 @@ export default function HighlightsSection() {
         { label: "Attendees", value: "100" },
         { label: "Bands", value: "12" },
         { label: "Universities", value: "10" },
-      ],
-      gallery: [
-        { src: "/S__23707650.jpg", alt: "Return of live music in 2022" },
-        { src: "/S__23707650.jpg", alt: "Student band performing" },
-        { src: "/S__23707650.jpg", alt: "Festival grounds" },
       ],
     },
   ];
@@ -79,7 +64,7 @@ export default function HighlightsSection() {
         </div>
 
         {/* Content */}
-        <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
+        <div className='grid grid-cols-1 gap-8'>
           {/* Stats */}
           <div className='lg:col-span-1'>
             <div className='bg-white rounded-xl shadow-md p-6 h-full'>

@@ -24,7 +24,6 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
     { href: "/artists", label: "アーティスト" },
     { href: "/timetable", label: "タイムテーブル" },
     { href: "/venue", label: "会場情報" },
-    { href: "/crowdfunding", label: "クラウドファンディング" },
     { href: "/todo", label: "他のライブ" },
   ];
 
@@ -175,20 +174,6 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
                       aria-hidden='true'
                     >
                       <path d='M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z' />
-                    </svg>
-                  </a>
-                  <a
-                    href='https://www.crowdfunding-site.com/openlive'
-                    className='text-yellow-600 hover:text-red-600 block transition-colors'
-                  >
-                    <svg
-                      className='w-10 h-10'
-                      fill='currentColor'
-                      viewBox='0 0 24 24'
-                      aria-hidden='true'
-                    >
-                      <path d='M12 4.942c1.827 0 3.505.614 4.84 1.651L12 12l-4.84-5.407A7.909 7.909 0 0112 4.942zM17.658 7.37C18.558 8.504 19.08 9.937 19.08 11.5c0 3.914-3.165 7.08-7.08 7.08-3.914 0-7.08-3.166-7.08-7.08 0-1.563.522-2.996 1.422-4.131L12 13.889l5.658-6.519zM12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z' />
-                      <path d='M13.5 16.5c0 .828-.672 1.5-1.5 1.5s-1.5-.672-1.5-1.5.672-1.5 1.5-1.5 1.5.672 1.5 1.5zM12 7a1 1 0 00-1 1v5a1 1 0 002 0V8a1 1 0 00-1-1z' />
                     </svg>
                   </a>
                 </div>

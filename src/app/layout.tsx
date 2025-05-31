@@ -3,6 +3,7 @@ import ClientLayout from "./layout-client";
 import { ReactNode } from "react";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://open-live.vercel.app"),
   title:
     "オープンライブ - 福岡の大学生音楽フェスティバル | 12大学のバンドが集結",
   description:
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
     title: "オープンライブ - 福岡の大学生音楽フェスティバル",
     description:
       "福岡最大の学生間音楽フェスティバル、オープンライブ。12大学から集結したバンドが一堂に会し、ライブパフォーマンスを披露。",
-    url: "https://example.com/openlive", // 実際のイベントURLに差し替えてください
+    url: "https://open-live.vercel.app", // 実際のイベントURLに差し替えてください
     siteName: "オープンライブ",
     images: [
       {
