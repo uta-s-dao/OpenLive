@@ -77,7 +77,7 @@ export default function SequentialTextAnimation() {
         }
       `}</style>
       <h1
-        className={`text-5xl sm:text-6xl md:text-8xl text-white font-bold drop-shadow-lg transition-all duration-1500 ease-out ${
+        className={`text-4xl sm:text-5xl md:text-8xl text-white font-bold drop-shadow-lg transition-all duration-1500 ease-out ${
           visibleElements.includes(0)
             ? "opacity-100 transform translate-y-0 scale-100"
             : "opacity-0 transform translate-y-16 scale-75"
@@ -88,22 +88,7 @@ export default function SequentialTextAnimation() {
             : "none",
         }}
       >
-        学生の今が,
-      </h1>
-
-      <h1
-        className={`text-5xl pt-5 sm:text-6xl md:text-8xl drop-shadow-lg text-white font-bold transition-all duration-1500 ease-out ${
-          visibleElements.includes(1)
-            ? "opacity-100 transform translate-y-0 scale-100"
-            : "opacity-0 transform translate-y-20 scale-90"
-        }`}
-        style={{
-          animation: visibleElements.includes(1)
-            ? "bounce-in 0.8s ease-out"
-            : "none",
-        }}
-      >
-        音になる
+        オープンライブ
       </h1>
 
       <p
@@ -118,7 +103,7 @@ export default function SequentialTextAnimation() {
             : "none",
         }}
       >
-        2025-8-20
+        8/20
       </p>
     </div>
   );

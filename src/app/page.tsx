@@ -37,8 +37,8 @@ export default function Home() {
             <div className='w-full order-2 md:order-1'>
               <h2 className='section-title'>オープンライブについて</h2>
               <p className='text-gray-700 mb-6 leading-relaxed'>
-                オープンライブは2022年から開催されている大学軽音楽部のための音楽フェスティバルです。
-                北九州や福岡の15大学以上が参加しており、年々規模を拡大しています。
+                福岡や北九州の大学軽音楽部のための音楽フェスティバルです。
+                今年は14大学が参加します。
               </p>
               <p className='text-gray-700 mb-8 leading-relaxed'>
                 2025年は、福岡のビートステーションでの開催を予定しています。より多くの観客に音楽の魅力を届けるため、チケットを無料化する計画があります
