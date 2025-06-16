@@ -1,5 +1,7 @@
 "use client";
-import Link from "next/link";
+import SafeLink from "./components/SafeLink";
+import { VENUE_URLS } from "./constants/urls";
+
 import Image from "next/image";
 // import ArtistsList from "./components/ArtistsList";
 import ResponsiveTimeTable from "./components/timeTableData";
@@ -128,12 +130,13 @@ export default function Home() {
                 </div>
               </div>
 
-              <Link
-                href='https://www.google.com/maps/place/%E3%80%92810-0004+%E7%A6%8F%E5%B2%A1%E7%9C%8C%E7%A6%8F%E5%B2%A1%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA%E6%B8%A1%E8%BE%BA%E9%80%9A%EF%BC%94%E4%B8%81%E7%9B%AE%EF%BC%91%EF%BC%91%E2%88%92%EF%BC%94+BEAT+STATION/@33.5839722,130.4015995,16z/data=!4m6!3m5!1s0x35419199451e2459:0xdf0388402e1e3db7!8m2!3d33.5839722!4d130.4015995!16s%2Fg%2F1td7l23p?utm_campaign=ml-sul'
+              <SafeLink
+                href={VENUE_URLS.BEAT_STATION_MAP}
                 className='button-secondary'
+                external={true}
               >
                 会場の詳細を見る
-              </Link>
+              </SafeLink>
             </div>
           </div>
         </div>
