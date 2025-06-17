@@ -136,7 +136,7 @@ export default function ClientLayout({ children }: { children: ReactNode }) {
       </div>
 
       {/* フッター */}
-      <footer className='py-2'>
+      <footer className='py-2 bg-white'>
         <div className='flex space-x-7 w-full items-center justify-center pt-5'>
           <SocialIcon platform='email' href={SOCIAL_URLS.EMAIL} />
           <SocialIcon platform='instagram' href={SOCIAL_URLS.INSTAGRAM} />

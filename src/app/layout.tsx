@@ -48,7 +48,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang='ja' className={`${notoSansJP.variable}`}>
-      <body className='min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 font-noto'>
+      <body className='min-h-screen font-noto'>
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
