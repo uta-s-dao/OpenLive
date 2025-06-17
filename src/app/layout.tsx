@@ -38,7 +38,7 @@ export const metadata: Metadata = {
         url: "/openlive.jpg", // public/openlive.jpgを指定
         width: 1200,
         height: 1200,
-        alt: "オープンライブ 福岡の大学生音楽フェスティバル スクエア画像",
+        alt: "オープンライブ 福岡の大学生音楽フェスティバル",
       },
     ],
     type: "website",
