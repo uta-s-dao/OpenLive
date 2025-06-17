@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   keywords:
     "オープンライブ, おーぷんらいぶ, 福岡, 大学生, 音楽フェスティバル, ライブ, バンド",
   icons: {
-    icon: "/openlive-icon.png",
+    icon: "/openlive.jpg",
   },
 
   openGraph: {
