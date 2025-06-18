@@ -1,7 +1,9 @@
 import { Metadata } from "next";
-import ClientLayout from "./layout-client";
 import { ReactNode } from "react";
 import { Noto_Sans_JP } from "next/font/google";
+import ClientHeader from "./components/ClientHeader";
+import SocialIcon from "./components/SocialIcon";
+import { SOCIAL_URLS } from "./constants/urls";
 
 const notoSansJP = Noto_Sans_JP({
   weight: ["400", "500", "700", "900"],
@@ -49,7 +51,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang='ja' className={`${notoSansJP.variable}`}>
       <body className='min-h-screen font-noto'>
-        <ClientLayout>{children}</ClientLayout>
+        <ClientHeader />
+        <main>{children}</main>
+        <footer className='py-2 bg-white'>
+          <div className='flex space-x-7 w-full items-center justify-center pt-5'>
+            <SocialIcon platform='email' href={SOCIAL_URLS.EMAIL} />
+            <SocialIcon platform='instagram' href={SOCIAL_URLS.INSTAGRAM} />
+            <SocialIcon platform='youtube' href={SOCIAL_URLS.YOUTUBE} />
+          </div>
+        </footer>
       </body>
     </html>
   );

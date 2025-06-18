@@ -107,8 +107,8 @@ export default function ResponsiveTimeTable() {
   ];
 
   return (
-    <section className='py-10 md:py-0 bg-white'>
-      <div className='container mx- px-4'>
+    <section className='py-10 md:py-10 bg-white'>
+      <div className='container mx-auto px-4'>
         <h2 className='section-title'>タイムテーブル</h2>
         {/* PC表示用のテーブル */}
         {!isMobile && (

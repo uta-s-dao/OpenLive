@@ -33,7 +33,7 @@ export default function Home() {
         </div>
       </section>
       {/* 概要セクション */}
-      <section className='py-10 px-4 md:py-6 bg-white'>
+      <section className='py-10 px-4 md:py-10 bg-white'>
         <div className='container mx-auto '>
           <div className='flex  items-center '>
             <div className='w-full order-2 md:order-1'>
@@ -54,7 +54,7 @@ export default function Home() {
       {/* <ArtistsList /> */}
       <ResponsiveTimeTable />
       {/* 会場情報セクション */}
-      <section className='py-10 md:py-0 bg-white'>
+      <section className='py-10 md:py-10 bg-white'>
         <div className='container mx-auto px-4'>
           <h2 className='section-title'>会場情報</h2>
 
