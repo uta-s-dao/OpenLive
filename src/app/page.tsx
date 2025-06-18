@@ -22,6 +22,7 @@ export default function Home() {
               sizes='100vw'
               quality={90}
               priority
+              loading='eager'
               fill
               className='object-cover animate-pulse-slow'
             />

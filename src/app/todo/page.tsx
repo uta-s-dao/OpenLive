@@ -118,7 +118,7 @@ const timetable: Slot[] = [
 
 export default function TimetablePage() {
   return (
-    <div className='container mx-auto px-1 pt-3 bg-white'>
+    <div className='mx-auto px-1 pt-3 mt-20 bg-white'>
       <div
         style={{
           background:
@@ -198,11 +198,6 @@ export default function TimetablePage() {
             </tbody>
           </table>
         </div>
-      </div>
-
-      {/* 注意書き */}
-      <div className='mt-2 text-center text-xs text-gray-600'>
-        ※ 横にスクロールして全ステージを確認できます
       </div>
     </div>
   );
