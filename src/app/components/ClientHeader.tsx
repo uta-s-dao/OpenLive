@@ -18,7 +18,7 @@ export default function ClientHeader() {
   return (
     <>
       <div className='fixed top-0 left-0 right-0 z-50 bg-white'>
-        <div className='container mx-auto px-4 py-4 flex items-center justify-between'>
+        <div className='mx-2 px-4 py-4 flex items-center justify-between'>
           <Link
             href='/'
             className='text-2xl md:text-3xl font-black bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent'
@@ -27,26 +27,11 @@ export default function ClientHeader() {
               オープンライブ
             </span>
           </Link>
-
-          {/* PC用ナビゲーション */}
-          <nav className='hidden md:flex space-x-8 text-gray-700'>
-            {links.map((link, index) => (
-              <SafeLink
-                key={index}
-                href={link.href}
-                external={link.external}
-                className='hover:text-red-600 transition-colors font-medium'
-              >
-                {link.label}
-              </SafeLink>
-            ))}
-          </nav>
-
           {/* モバイル用ハンバーガーボタン */}
-          <div className='md:hidden'>
+          <div className=''>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className='p-2 text-gray-700 hover:text-red-600 transition-colors z-20 relative'
+              className='p-2 text-black hover:text-red-600 transition-colors z-20 relative'
               aria-label={isMenuOpen ? "メニューを閉じる" : "メニューを開く"}
             >
               {!isMenuOpen ? (
@@ -87,7 +72,7 @@ export default function ClientHeader() {
 
       {/* サイドメニュー（モバイル用） */}
       {isMenuOpen && (
-        <div className='fixed inset-0 z-40 md:hidden'>
+        <div className='fixed inset-0 z-40 '>
           {/* 半透明の背景オーバーレイ */}
           <div
             className='absolute inset-0 bg-black bg-opacity-70'
@@ -121,7 +106,7 @@ export default function ClientHeader() {
             </div>
 
             {/* SNSリンク */}
-            <div className='flex space-x-7 py-4 w-full items-center justify-center bg-white'>
+            <div className='flex space-x-7 py-4 w-full px-2 items-center justify-center bg-white'>
               <SocialIcon platform='email' href={SOCIAL_URLS.EMAIL} />
               <SocialIcon platform='instagram' href={SOCIAL_URLS.INSTAGRAM} />
               <SocialIcon platform='youtube' href={SOCIAL_URLS.YOUTUBE} />

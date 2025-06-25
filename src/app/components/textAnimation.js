@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 
 export default function SequentialTextAnimation() {
   const [visibleChars, setVisibleChars] = useState([]);
+  const [landedChars, setLandedChars] = useState([]);
   const [showDate, setShowDate] = useState(false);
   const [animationsComplete, setAnimationsComplete] = useState(false);
 
@@ -14,18 +15,23 @@ export default function SequentialTextAnimation() {
     const charTimers = chars.map((_, index) =>
       setTimeout(() => {
         setVisibleChars((prev) => [...prev, index]);
+
+        // 着地効果のため、0.3秒後に着地状態にする
+        setTimeout(() => {
+          setLandedChars((prev) => [...prev, index]);
+        }, 300); // fly-from-frontアニメーションの終了タイミング
       }, 100 + index * 50)
     );
 
     // 日付を表示
     const dateTimer = setTimeout(() => {
       setShowDate(true);
-    }, 100 + chars.length * 50 + 200);
+    }, 100 + chars.length * 50 + 500); // 少し遅らせる
 
     // 全てのアニメーションが完了したらクリーンな状態にする
     const cleanupTimer = setTimeout(() => {
       setAnimationsComplete(true);
-    }, 100 + chars.length * 50 + 200 + 1000); // 日付表示から2秒後
+    }, 100 + chars.length * 50 + 500 + 3000); // 光る効果を楽しむ時間を増やす
 
     // クリーンアップ
     return () => {
@@ -37,7 +43,7 @@ export default function SequentialTextAnimation() {
 
   return (
     <div
-      className='min-h-screen flex flex-col justify-center items-center px-4 '
+      className='min-h-screen flex flex-col justify-center items-center px-4'
       style={{ perspective: "1000px" }}
     >
       <style jsx>{`
@@ -125,11 +131,12 @@ export default function SequentialTextAnimation() {
             filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.5));
           }
           50% {
-            text-shadow: 0 0 15px rgba(255, 255, 255, 1),
-              0 0 30px rgba(255, 255, 255, 0.9),
-              0 0 45px rgba(255, 255, 255, 0.7),
-              0 0 60px rgba(255, 100, 100, 0.5), 0 0 80px rgba(255, 50, 50, 0.3);
-            filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.8));
+            text-shadow: 0 0 20px rgba(255, 255, 255, 1),
+              0 0 40px rgba(255, 255, 255, 0.9),
+              0 0 60px rgba(255, 255, 255, 0.8),
+              0 0 80px rgba(255, 100, 100, 0.6),
+              0 0 100px rgba(255, 50, 50, 0.4), 0 0 120px rgba(255, 0, 0, 0.3);
+            filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.9));
           }
           100% {
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.9),
@@ -152,6 +159,20 @@ export default function SequentialTextAnimation() {
           100% {
             transform: translateZ(-100px) scale(2.5) rotateX(30deg);
             opacity: 0;
+          }
+        }
+
+        @keyframes landing-flash {
+          0% {
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+          }
+          50% {
+            text-shadow: 0 0 30px rgba(255, 255, 255, 1),
+              0 0 50px rgba(255, 255, 255, 0.8),
+              0 0 70px rgba(255, 200, 100, 0.6);
+          }
+          100% {
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
           }
         }
 
@@ -231,11 +252,28 @@ export default function SequentialTextAnimation() {
               opacity: visibleChars.includes(index) ? 1 : 0,
               animation: animationsComplete
                 ? "none"
-                : visibleChars.includes(index)
-                ? `fly-from-front 0.3s ease-out, impact-3d-shake 0.1s ease-out 0.2s, intense-3d-glow 1s ease-in-out infinite ${
-                    index * 0.05
-                  }s`
-                : "none",
+                : (() => {
+                    let animations = [];
+
+                    // 飛来アニメーション
+                    if (visibleChars.includes(index)) {
+                      animations.push(`fly-from-front 0.3s ease-out`);
+                    }
+
+                    // 着地時の衝撃アニメーション
+                    if (visibleChars.includes(index)) {
+                      animations.push(`impact-3d-shake 0.15s ease-out 0.3s`);
+                    }
+
+                    // 着地時の一瞬の光フラッシュ
+                    if (landedChars.includes(index)) {
+                      animations.push(`landing-flash 0.2s ease-out 0.45s`);
+                    }
+
+                    return animations.length > 0
+                      ? animations.join(", ")
+                      : "none";
+                  })(),
               transformStyle: "preserve-3d",
             }}
           >
@@ -251,15 +289,23 @@ export default function SequentialTextAnimation() {
         style={{
           animation: animationsComplete
             ? "none"
-            : showDate
-            ? "date-zoom-in 0.24s ease-out, intense-3d-glow 0.6s ease-in-out infinite 0.3s"
-            : "none",
+            : (() => {
+                let animations = [];
+
+                // 飛来アニメーション
+                if (showDate) {
+                  animations.push(`date-zoom-in 0.4s ease-out`);
+                }
+
+                // 着地時の一瞬の光フラッシュ
+                if (showDate) {
+                  animations.push(`landing-flash 0.2s ease-out 0.4s`);
+                }
+
+                return animations.length > 0 ? animations.join(", ") : "none";
+              })(),
           transformStyle: "preserve-3d",
-          textShadow: animationsComplete
-            ? "none"
-            : showDate
-            ? "0 0 15px rgba(255, 255, 255, 0.9), 0 0 30px rgba(255, 255, 255, 0.7), 0 0 45px rgba(255, 100, 100, 0.5)"
-            : "none",
+          textShadow: animationsComplete ? "none" : "none",
         }}
       >
         8/20

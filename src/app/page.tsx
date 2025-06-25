@@ -3,35 +3,29 @@ import SafeLink from "./components/SafeLink";
 import { VENUE_URLS } from "./constants/urls";
 
 import Image from "next/image";
-// import ArtistsList from "./components/ArtistsList";
 import ResponsiveTimeTable from "./components/timeTableData";
 import HighlightsSection from "./components/HighlightsSection";
 import SequentialTextAnimation from "./components/textAnimation";
+
 export default function Home() {
   return (
     <>
-      {/* ヒーローセクション */}
-      <section className='relative w-screen h-screen flex items-center justify-center overflow-hidden'>
-        <div className='absolute inset-0 z-0'>
-          {/* 画像にオーバーレイを追加して視認性を向上 */}
-
-          <div className='relative w-full h-full'>
-            <Image
-              src='/openlive.jpg'
-              alt='Openlive Festival'
-              sizes='100vw'
-              quality={90}
-              priority
-              fill
-              className='object-cover animate-pulse-slow'
-            />
-            <div className='absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/70 to-transparent pointer-events-none'></div>
-          </div>
-        </div>
-        <div className='container relative z-10 text-center px-4 py-8'>
+      {/* ヒーローセクション - CSS背景画像版（プリロード警告なし） */}
+      <section
+        className='relative w-screen h-screen flex items-center justify-center overflow-hidden'
+        style={{
+          backgroundImage: "url(/openlive.jpg)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        {/* テキストコンテンツ */}
+        <div className='container text-center px-4 py-8 relative z-10'>
           <SequentialTextAnimation />
         </div>
       </section>
+
       {/* 概要セクション */}
       <section className='py-10 px-4 md:py-10 bg-white'>
         <div className='container mx-auto '>
@@ -51,8 +45,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* <ArtistsList /> */}
       <ResponsiveTimeTable />
+
       {/* 会場情報セクション */}
       <section className='py-10 md:py-10 bg-white'>
         <div className='container mx-auto px-4'>
@@ -141,7 +135,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* Highlights from Previous Years */}
+
       <HighlightsSection />
     </>
   );
