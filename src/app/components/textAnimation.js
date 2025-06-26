@@ -16,17 +16,16 @@ export default function SequentialTextAnimation() {
       setTimeout(() => {
         setVisibleChars((prev) => [...prev, index]);
 
-        // 着地効果のため、0.3秒後に着地状態にする
         setTimeout(() => {
           setLandedChars((prev) => [...prev, index]);
         }, 300); // fly-from-frontアニメーションの終了タイミング
-      }, 100 + index * 50)
+      }, 600 + index * 70)
     );
 
     // 日付を表示
     const dateTimer = setTimeout(() => {
       setShowDate(true);
-    }, 100 + chars.length * 50 + 500); // 少し遅らせる
+    }, 200 + chars.length * 80 + 700); // 少し遅らせる
 
     // 全てのアニメーションが完了したらクリーンな状態にする
     const cleanupTimer = setTimeout(() => {
@@ -257,12 +256,12 @@ export default function SequentialTextAnimation() {
 
                     // 飛来アニメーション
                     if (visibleChars.includes(index)) {
-                      animations.push(`fly-from-front 0.3s ease-out`);
+                      animations.push(`fly-from-front 0.4s ease-out`);
                     }
 
                     // 着地時の衝撃アニメーション
                     if (visibleChars.includes(index)) {
-                      animations.push(`impact-3d-shake 0.15s ease-out 0.3s`);
+                      animations.push(`impact-3d-shake 0.3s ease-out 0.3s`);
                     }
 
                     // 着地時の一瞬の光フラッシュ
