@@ -5,6 +5,7 @@ import "../globals.css";
 import SafeLink from "./SafeLink";
 import SocialIcon from "./SocialIcon";
 import { VENUE_URLS, SOCIAL_URLS } from "../constants/urls";
+import Image from "next/image";
 
 export default function ClientHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,21 +18,42 @@ export default function ClientHeader() {
 
   return (
     <>
-      <div className='fixed top-0 left-0 right-0 z-50 bg-white'>
-        <div className='mx-2 px-4 py-4 flex items-center justify-between'>
+      <div className='fixed top-0 left-0 right-0 z-50 bg-black'>
+        <div className='mx-2 px-3 my-1 flex items-center justify-between'>
           <Link
             href='/'
             className='text-2xl md:text-3xl font-black bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent'
           >
-            <span className='relative bg-gradient-to-t mr-5 from-red-400 via-red-600 to-yellow-400 bg-clip-text text-transparent'>
-              オープンライブ
-            </span>
+            {/* <Image
+              src='/openlive.blue.jpg'
+              alt='オープンライブロゴ'
+              width={1062}
+              height={549}
+              priority
+              className='h-16 w-auto sm:h-20 sm:w-auto md:h-24 md:w-auto lg:h-28 lg:w-auto'
+            /> */}
+            {/* <Image
+              src='/openlive.green.jpg'
+              alt='オープンライブロゴ'
+              width={978}
+              height={528}
+              priority
+              className='h-16 w-auto sm:h-20 sm:w-auto md:h-24 md:w-auto lg:h-28 lg:w-auto'
+            /> */}
+            <Image
+              src='/openlive.black.mobile.jpg'
+              alt='オープンライブロゴ'
+              width={985}
+              height={608}
+              priority
+              className='h-16 w-auto sm:h-20 sm:w-auto md:h-24 md:w-auto lg:h-28 lg:w-auto'
+            />
           </Link>
           {/* モバイル用ハンバーガーボタン */}
           <div className=''>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className='p-2 text-black hover:text-red-600 transition-colors z-20 relative'
+              className='p-2 text-red-500 hover:text-red-600 transition-colors z-20 relative'
               aria-label={isMenuOpen ? "メニューを閉じる" : "メニューを開く"}
             >
               {!isMenuOpen ? (
