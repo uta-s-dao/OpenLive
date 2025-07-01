@@ -107,81 +107,83 @@ export default function ResponsiveTimeTable() {
   ];
 
   return (
-    <section className='py-10 md:py-10 bg-white'>
-      <div className='container mx-auto px-4'>
-        <h2 className='section-title'>タイムテーブル</h2>
-        {/* PC表示用のテーブル */}
-        {!isMobile && (
-          <div className='overflow-x-auto'>
-            <table className='min-w-full divide-y divide-gray-200'>
-              <thead className='bg-gray-50'>
-                <tr>
-                  <th className='px-5 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
-                    時間
-                  </th>
-                  <th className='px-5 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
-                    バンド名
-                  </th>
-                  <th className='px-5 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
-                    大学
-                  </th>
-                </tr>
-              </thead>
-              <tbody className='bg-white divide-y divide-gray-200'>
-                {timeTableData.map((item, index) => (
-                  <tr key={index} className='hover:bg-gray-50'>
-                    <td className='px-5 py-2 whitespace-nowrap text-sm font-medium text-gray-500'>
-                      {item.time}
-                    </td>
-                    <td className='px-5 py-2 whitespace-nowrap text-sm font-bold'>
-                      {item.bandName}
-                    </td>
-                    <td className='px-5 py-2 whitespace-nowrap text-sm text-gray-500'>
-                      {item.university}
-                    </td>
+    <div className='container'>
+      <section className='py-10 md:py-10 bg-white'>
+        <div className='container mx-auto px-4'>
+          <h2 className='section-title'>タイムテーブル</h2>
+          {/* PC表示用のテーブル */}
+          {!isMobile && (
+            <div className='overflow-x-auto'>
+              <table className='min-w-full divide-y divide-gray-200'>
+                <thead className='bg-gray-50'>
+                  <tr>
+                    <th className='px-5 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+                      時間
+                    </th>
+                    <th className='px-5 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+                      バンド名
+                    </th>
+                    <th className='px-5 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+                      大学
+                    </th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
+                </thead>
+                <tbody className='bg-white divide-y divide-gray-200'>
+                  {timeTableData.map((item, index) => (
+                    <tr key={index} className='hover:bg-gray-50'>
+                      <td className='px-5 py-2 whitespace-nowrap text-sm font-medium text-gray-500'>
+                        {item.time}
+                      </td>
+                      <td className='px-5 py-2 whitespace-nowrap text-sm font-bold'>
+                        {item.bandName}
+                      </td>
+                      <td className='px-5 py-2 whitespace-nowrap text-sm text-gray-500'>
+                        {item.university}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
 
-        {/* モバイル表示用のカードレイアウト */}
-        {isMobile && (
-          <div className='container mx-auto  divide-gray-200'>
-            <table className='min-w-full divide-y divide-gray-200'>
-              <thead className='bg-gray-50'>
-                <tr>
-                  <th className='px-3 py-4 text-left text-xs font-normal text-gray-500 uppercase tracking-wider'>
-                    時間
-                  </th>
-                  <th className='px-3 py-4 text-left text-xs font-normal text-gray-500 uppercase tracking-wider'>
-                    バンド名
-                  </th>
-                  <th className='px-3 py-4 text-left text-xs font-normal text-gray-500 uppercase tracking-wider'>
-                    大学
-                  </th>
-                </tr>
-              </thead>
-              <tbody className='bg-white divide-y divide-gray-200'>
-                {timeTableData.map((item, index) => (
-                  <tr key={index} className='hover:bg-gray-50'>
-                    <td className='px-3 py-4 whitespace-nowrap text-xs font-medium text-gray-500'>
-                      {item.time}
-                    </td>
-                    <td className='px-3 py-4 whitespace-nowrap text-xs font-bold'>
-                      {item.bandName}
-                    </td>
-                    <td className='px-3 py-4 whitespace-nowrap text-xs text-gray-500'>
-                      {item.university}
-                    </td>
+          {/* モバイル表示用のカードレイアウト */}
+          {isMobile && (
+            <div className='container mx-auto  divide-gray-200'>
+              <table className='min-w-full divide-y divide-gray-200'>
+                <thead className='bg-gray-50'>
+                  <tr>
+                    <th className='px-3 py-4 text-left text-xs font-normal text-gray-500 uppercase tracking-wider'>
+                      時間
+                    </th>
+                    <th className='px-3 py-4 text-left text-xs font-normal text-gray-500 uppercase tracking-wider'>
+                      バンド名
+                    </th>
+                    <th className='px-3 py-4 text-left text-xs font-normal text-gray-500 uppercase tracking-wider'>
+                      大学
+                    </th>
                   </tr>
-                ))}
-              </tbody>
-            </table>{" "}
-          </div>
-        )}
-      </div>
-    </section>
+                </thead>
+                <tbody className='bg-white divide-y divide-gray-200'>
+                  {timeTableData.map((item, index) => (
+                    <tr key={index} className='hover:bg-gray-50'>
+                      <td className='px-3 py-4 whitespace-nowrap text-xs font-medium text-gray-500'>
+                        {item.time}
+                      </td>
+                      <td className='px-3 py-4 whitespace-nowrap text-xs font-bold'>
+                        {item.bandName}
+                      </td>
+                      <td className='px-3 py-4 whitespace-nowrap text-xs text-gray-500'>
+                        {item.university}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>{" "}
+            </div>
+          )}
+        </div>
+      </section>
+    </div>
   );
 }
