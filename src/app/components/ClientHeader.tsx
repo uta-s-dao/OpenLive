@@ -38,7 +38,7 @@ export default function ClientHeader() {
               width={978}
               height={528}
               priority
-              className='h-16 w-auto sm:h-20 sm:w-auto md:h-24 md:w-auto lg:h-28 lg:w-auto'
+              className='h-16 w-auto sm:h-20 sm:w-auto md:h-20 md:w-auto lg:h-22 lg:w-auto'
             />
             {/* <Image
               src='/openlive.black.mobile.jpg'

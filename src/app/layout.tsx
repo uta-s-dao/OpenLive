@@ -1,4 +1,3 @@
-import { Metadata } from "next";
 import { ReactNode } from "react";
 import { Noto_Sans_JP } from "next/font/google";
 import ClientHeader from "./components/ClientHeader";
@@ -12,7 +11,7 @@ const notoSansJP = Noto_Sans_JP({
   variable: "--font-noto-sans-jp",
 });
 
-export const metadata: Metadata = {
+export const metadata = {
   metadataBase: new URL("https://open-live.vercel.app"),
   title: "オープンライブ",
   description:
@@ -31,13 +30,13 @@ export const metadata: Metadata = {
     siteName: "オープンライブ",
     images: [
       {
-        url: "/openlive.jpg", // public/openlive.jpgを指定
+        url: "//openlive.green.jpg", // public//openlive.green.jpgを指定
         width: 1200,
         height: 630,
         alt: "オープンライブ 福岡の大学生音楽フェスティバル",
       },
       {
-        url: "/openlive.jpg", // public/openlive.jpgを指定
+        url: "//openlive.green.jpg", // public//openlive.green.jpgを指定
         width: 1200,
         height: 1200,
         alt: "オープンライブ 福岡の大学生音楽フェスティバル",
