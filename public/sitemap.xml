@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  
+  <!-- メインページ（最高優先度） -->
+  <url>
+    <loc>https://openlive.cc/</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://openlive.cc/openlive.green.jpg</image:loc>
+      <image:title>オープンライブ2025 福岡大学生音楽フェスティバル</image:title>
+      <image:caption>福岡・北九州の14大学による学生音楽フェスティバル</image:caption>
+    </image:image>
+  </url>
+
+  <!-- イベント詳細ページ -->
+  <url>
+    <loc>https://openlive.cc/todo</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- アーティスト個別ページ（動的生成想定） -->
+  <url>
+    <loc>https://openlive.cc/artists/%E3%82%A2%E3%82%B8%E3%82%AB%E3%83%B3</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://openlive.cc/artists/04%20Limited%20Sazabys</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://openlive.cc/artists/ONE%20OK%20ROCK</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://openlive.cc/artists/%E3%83%8F%E3%83%B3%E3%83%96%E3%83%AC%E3%83%83%E3%82%BF%E3%83%BC%E3%82%BA</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://openlive.cc/artists/%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%97%E3%83%8F%E3%82%A4%E3%83%97</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://openlive.cc/artists/%E3%83%9D%E3%83%AB%E3%82%AB%E3%83%89%E3%83%83%E3%83%88%E3%82%B9%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E3%83%AC%E3%82%A4</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- 今後追加予定のページ -->
+  <url>
+    <loc>https://openlive.cc/about</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://openlive.cc/schedule</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://openlive.cc/venue</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://openlive.cc/access</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://openlive.cc/contact</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- 過去のイベントページ -->
+  <url>
+    <loc>https://openlive.cc/history/2024</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <url>
+    <loc>https://openlive.cc/history/2023</loc>
+    <lastmod>2024-01-15</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://openlive.cc/history/2022</loc>
+    <lastmod>2023-01-15</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- ニュース・更新情報ページ -->
+  <url>
+    <loc>https://openlive.cc/news</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- チケット情報ページ -->
+  <url>
+    <loc>https://openlive.cc/tickets</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- FAQ・よくある質問 -->
+  <url>
+    <loc>https://openlive.cc/faq</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- 大学別ページ -->
+  <url>
+    <loc>https://openlive.cc/universities</loc>
+    <lastmod>2025-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- プライバシーポリシー -->
+  <url>
+    <loc>https://openlive.cc/privacy</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- 利用規約 -->
+  <url>
+    <loc>https://openlive.cc/terms</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+</urlset>
