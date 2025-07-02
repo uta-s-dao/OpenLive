@@ -12,12 +12,13 @@ const notoSansJP = Noto_Sans_JP({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://open-live.vercel.app"),
+  metadataBase: new URL("https://openlive.cc"),
   title: "オープンライブ",
   description:
     "福岡最大の学生間音楽フェスティバル、オープンライブ。14大学から集結したバンドが一堂に会し、ライブパフォーマンスを披露。音楽と大学生の熱い情熱が交差する瞬間をお見逃しなく！",
   keywords:
     "オープンライブ, おーぷんらいぶ, 福岡, 大学生, 音楽フェスティバル, ライブ, バンド",
+  icons: "/openlive.green.jpg",
   openGraph: {
     title: "オープンライブ",
     description:
@@ -26,13 +27,13 @@ export const metadata = {
     siteName: "オープンライブ",
     images: [
       {
-        url: "//favicon.ico", // public//favicon.icoを指定
+        url: "/openlive.green.jpg", // public//openlive.green.jpgを指定
         width: 1200,
         height: 630,
         alt: "オープンライブ 福岡の大学生音楽フェスティバル",
       },
       {
-        url: "//favicon.ico", // public//favicon.icoを指定
+        url: "/openlive.green.jpg", // public//openlive.green.jpgを指定
         width: 1200,
         height: 1200,
         alt: "オープンライブ 福岡の大学生音楽フェスティバル",

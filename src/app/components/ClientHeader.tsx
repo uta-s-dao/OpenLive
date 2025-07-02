@@ -100,7 +100,7 @@ export default function ClientHeader() {
             className='absolute inset-0 bg-black bg-opacity-70'
             onClick={() => setIsMenuOpen(false)}
           ></div>
-
+          fabicon
           {/* サイドメニュー */}
           <div className='absolute top-0 right-0 h-full w-45 max-w-xs flex flex-col shadow-lg bg-white transform transition-transform duration-300 ease-in-out'>
             <div className='flex items-center justify-between px-4 py-3 bg-red-500 text-white'>
