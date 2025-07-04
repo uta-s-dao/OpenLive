@@ -3,7 +3,8 @@
     {
       "source": "/(.*)",
       "destination": "https://openlive.cc/$1",
-      "permanent": true
+      "permanent": true,
+      "statusCode": 301
     }
   ],
   "headers": [
