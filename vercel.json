@@ -1,7 +1,12 @@
 {
   "redirects": [
     {
-      "source": "/(.*)",
+      "source": "/",
+      "destination": "https://openlive.cc/",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
       "destination": "https://openlive.cc/:path*",
       "statusCode": 301
     }
