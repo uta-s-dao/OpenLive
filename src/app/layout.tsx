@@ -5,7 +5,7 @@ import SocialIcon from "./components/SocialIcon";
 import { SOCIAL_URLS } from "./constants/urls";
 
 const notoSansJP = Noto_Sans_JP({
-  weight: ["400", "500", "700", "900"],
+  weight: ["400", "700"],
   subsets: ["latin"],
   display: "swap",
   variable: "--font-noto-sans-jp",
