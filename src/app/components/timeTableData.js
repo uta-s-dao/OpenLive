@@ -26,73 +26,73 @@ export default function ResponsiveTimeTable() {
   const timeTableData = [
     {
       time: "10:30",
-      bandName: "バンド1",
-      university: "大学1",
+      bandName: "MY FIRST STORY",
+      university: "産医大",
     },
     {
       time: "11:00",
-      bandName: "バンド2",
-      university: "大学2",
+      bandName: "Maki",
+      university: "共立大",
     },
     {
       time: "11:30",
-      bandName: "バンド3",
-      university: "大学3",
+      bandName: "熊大",
+      university: "OKAMOTO'S",
     },
     {
       time: "12:00",
-      bandName: "バンド4",
-      university: "大学4",
+      bandName: "luv",
+      university: "九大芸工",
     },
     {
       time: "12:30",
-      bandName: "バンド5",
-      university: "大学5",
+      bandName: "Suspended 4th",
+      university: "西南大",
     },
     {
       time: "13:00",
-      bandName: "バンド6",
-      university: "大学6",
+      bandName: "マキシマム ザ ホルモン",
+      university: "福大",
     },
     {
       time: "13:30",
-      bandName: "バンド7",
-      university: "大学7",
+      bandName: "THE ORAL CIGARETTES",
+      university: "西工大",
     },
     {
       time: "14:00",
-      bandName: "バンド8",
-      university: "大学8",
+      bandName: "ASIAN KUNG-FU GENERATION",
+      university: "野次馬",
     },
     {
       time: "14:30",
-      bandName: "バンド9",
-      university: "大学9",
+      bandName: "?",
+      university: "Soes",
     },
     {
       time: "15:00",
-      bandName: "バンド10",
-      university: "大学10",
+      bandName: "ハンブレッダーズ",
+      university: "福教",
     },
     {
       time: "15:30",
-      bandName: "バンド11",
-      university: "大学11",
+      bandName: "ハルカミライ",
+      university: "下市",
     },
     {
       time: "16:00",
-      bandName: "バンド12",
-      university: "大学12",
+      bandName: "KOTORI",
+      university: "スピ",
     },
     {
       time: "16:30",
       bandName: "バンド13",
-      university: "大学13",
+      university: "歯科大",
     },
     {
       time: "17:00",
       bandName: "バンド14",
-      university: "大学14",
+      university: "情報工",
     },
     {
       time: "17:30",
@@ -110,7 +110,7 @@ export default function ResponsiveTimeTable() {
     <div className='container'>
       <section className='py-10 md:py-10 bg-white'>
         <div className='container mx-auto px-4'>
-          <h2 className='section-title'>タイムテーブル</h2>
+          <h2 className='section-title'>タイムテーブル 時間は調整中</h2>
           {/* PC表示用のテーブル */}
           {!isMobile && (
             <div className='overflow-x-auto'>
