@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 export default function SequentialTextAnimation() {
   const [visibleChars, setVisibleChars] = useState([]);
@@ -8,8 +8,8 @@ export default function SequentialTextAnimation() {
   const [animationsComplete, setAnimationsComplete] = useState(false);
 
   const mainText = "オープンライブ";
-  // const chars = useMemo(() => mainText.split(""), []);
-  const chars = mainText.split("");
+  const chars = useMemo(() => mainText.split(""), []);
+  // const chars = mainText.split("");
 
   useEffect(() => {
     // 各文字を順番に表示するタイマー
