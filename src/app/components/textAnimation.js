@@ -8,6 +8,7 @@ export default function SequentialTextAnimation() {
   const [animationsComplete, setAnimationsComplete] = useState(false);
 
   const mainText = "オープンライブ";
+  // const chars = useMemo(() => mainText.split(""), []);
   const chars = mainText.split("");
 
   useEffect(() => {
@@ -38,7 +39,7 @@ export default function SequentialTextAnimation() {
       clearTimeout(dateTimer);
       clearTimeout(cleanupTimer);
     };
-  }, [chars.length]);
+  }, [chars]);
 
   return (
     <div
