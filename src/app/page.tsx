@@ -26,6 +26,8 @@ export default function Home() {
         </div>
       </section>
 
+      <ResponsiveTimeTable />
+
       {/* 概要セクション */}
       <section className='py-10 px-4 md:py-10 bg-white'>
         <div className='container mx-auto '>
@@ -44,8 +46,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <ResponsiveTimeTable />
 
       {/* 会場情報セクション */}
       <section className='py-10 md:py-10 bg-white'>
