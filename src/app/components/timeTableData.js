@@ -196,12 +196,12 @@ export default function ResponsiveTimeTable() {
                         <span className='font-mono'>{item.time}</span>
                       </div>
                     </td>
-                    <td className='px-3 py-4 whitespace-nowrap text-xs font-bold text-gray-800 group-hover:text-red-700 transition-colors duration-300'>
+                    <td className='px-2 py-4 whitespace-nowrap text-xs font-bold text-gray-800 group-hover:text-red-700 transition-colors duration-300'>
                       <div className='flex items-center space-x-1'>
                         <span>{item.bandName}</span>
                       </div>
                     </td>
-                    <td className='px-3 py-4 whitespace-nowrap text-xs font-semibold text-gray-500 group-hover:text-red-600 transition-colors duration-300'>
+                    <td className='px-2 py-4 whitespace-nowrap text-xs font-semibold text-gray-500 group-hover:text-red-600 transition-colors duration-300'>
                       <div className='flex items-center space-x-2'>
                         <div className='w-1.5 h-1.5 bg-gradient-to-r from-orange-400 to-red-400 rounded-full'></div>
                         <span>{item.university}</span>
