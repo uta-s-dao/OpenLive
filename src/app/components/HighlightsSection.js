@@ -40,7 +40,7 @@ export default function HighlightsSection() {
   const currentHighlight = highlights[activeTab];
 
   return (
-    <section className='py-10 bg-white'>
+    <section className='py-10 bg-gradient-to-br from-red-50 to-rose-50'>
       <div className='container mx-auto px-4'>
         <h2 className='section-title'>ハイライト</h2>
 
