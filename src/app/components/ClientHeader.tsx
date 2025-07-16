@@ -19,19 +19,27 @@ export default function ClientHeader() {
       const currentScrollY = window.scrollY;
 
       if (currentScrollY < window.innerHeight) {
-        // 最初の画面内（1画面分）では透明
+        // 最初の画面内では透明背景
         setIsTransparent(true);
-      } else if (
-        currentScrollY > lastScrollY &&
-        currentScrollY > window.innerHeight + 50
-      ) {
-        // 下にスクロール中かつ1画面+50px以上スクロールした場合は非表示
-        setIsVisible(false);
+
+        // 下スクロールの場合は非表示、上スクロールの場合は表示
+        if (currentScrollY > lastScrollY && currentScrollY > 50) {
+          setIsVisible(false);
+        } else {
+          setIsVisible(true);
+        }
+      } else {
+        // 1画面を超えた場合は白背景
         setIsTransparent(false);
-      } else if (currentScrollY >= window.innerHeight) {
-        // 1画面分を超えて上にスクロール中の場合は表示（白背景）
-        setIsVisible(true);
-        setIsTransparent(false);
+
+        if (
+          currentScrollY > lastScrollY &&
+          currentScrollY > window.innerHeight + 50
+        ) {
+          setIsVisible(false);
+        } else {
+          setIsVisible(true);
+        }
       }
 
       setLastScrollY(currentScrollY);
