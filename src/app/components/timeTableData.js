@@ -107,7 +107,7 @@ export default function ResponsiveTimeTable() {
   ];
 
   return (
-    <section className='py-10 md:py-10 bg-white'>
+    <section className='py-20 md:py-40 bg-white'>
       <div className='container mx-auto px-4'>
         <h2 className='section-title'>タイムテーブル 時間は調整中</h2>
         {/* PC表示用のテーブル */}

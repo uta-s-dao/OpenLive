@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import "../globals.css";
 import SafeLink from "./SafeLink";
@@ -9,6 +9,37 @@ import Image from "next/image";
 
 export default function ClientHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [isTransparent, setIsTransparent] = useState(true);
+
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const controlHeader = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY < window.innerHeight) {
+        // 最初の画面内（1画面分）では透明
+        setIsTransparent(true);
+      } else if (
+        currentScrollY > lastScrollY &&
+        currentScrollY > window.innerHeight + 50
+      ) {
+        // 下にスクロール中かつ1画面+50px以上スクロールした場合は非表示
+        setIsVisible(false);
+        setIsTransparent(false);
+      } else if (currentScrollY >= window.innerHeight) {
+        // 1画面分を超えて上にスクロール中の場合は表示（白背景）
+        setIsVisible(true);
+        setIsTransparent(false);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", controlHeader);
+    return () => window.removeEventListener("scroll", controlHeader);
+  }, [lastScrollY]);
 
   const links = [
     { href: VENUE_URLS.HOME, label: "ホーム", external: false },
@@ -18,7 +49,11 @@ export default function ClientHeader() {
 
   return (
     <>
-      <div className='fixed top-0 left-0 right-0 z-50 bg-white'>
+      <div
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isTransparent ? "bg-transparent" : "bg-white"
+        } ${isVisible ? "translate-y-0" : "-translate-y-full"}`}
+      >
         <div className='mx-2 px-3 my-1 flex items-center justify-between'>
           <Link
             href='/'
@@ -32,28 +67,28 @@ export default function ClientHeader() {
               priority
               className='h-16 w-auto sm:h-20 sm:w-auto md:h-21 md:w-auto lg:h-22 lg:w-auto'
             /> */}
-            <Image
-              src='/openlive.green.jpg'
+            {/* <Image
+              src='/header.jpg'
               alt='オープンライブロゴ'
               width={978}
               height={528}
               priority
               className='h-16 w-auto sm:h-20 sm:w-auto md:h-20 md:w-auto lg:h-22 lg:w-auto'
-            />
-            {/* <Image
-              src='/openlive.black.mobile.jpg'
+            /> */}
+            <Image
+              src='/fuchiari.png'
               alt='オープンライブロゴ'
               width={985}
               height={608}
               priority
               className='h-16 w-auto sm:h-20 sm:w-auto md:h-24 md:w-auto lg:h-28 lg:w-auto'
-            /> */}
+            />
           </Link>
           {/* モバイル用ハンバーガーボタン */}
           <div className=''>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className='p-2 text-black hover:text-red-600 transition-colors z-20 relative'
+              className='p-2 text-red-600  z-20 relative'
               aria-label={isMenuOpen ? "メニューを閉じる" : "メニューを開く"}
             >
               {!isMenuOpen ? (
@@ -103,7 +138,7 @@ export default function ClientHeader() {
           fabicon
           {/* サイドメニュー */}
           <div className='absolute top-0 right-0 h-full w-45 max-w-xs flex flex-col shadow-lg bg-white transform transition-transform duration-300 ease-in-out'>
-            <div className='flex items-center justify-between px-4 py-3 bg-red-500 text-white'>
+            <div className='flex items-center justify-between px-4 py-3  text-white'>
               <div className='text-xl font-bold text-white'>Menu</div>
             </div>
 

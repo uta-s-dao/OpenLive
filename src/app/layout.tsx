@@ -18,13 +18,13 @@ export const metadata = {
     siteName: "オープンライブ",
     images: [
       {
-        url: "/openlive.green.jpg",
+        url: "/fuchiari.png",
         width: 1200,
         height: 630,
         alt: "オープンライブ 福岡の大学生音楽フェスティバル",
       },
       {
-        url: "/openlive.green.jpg",
+        url: "/fuchiari.png",
         width: 1200,
         height: 1200,
         alt: "オープンライブ 福岡の大学生音楽フェスティバル",
