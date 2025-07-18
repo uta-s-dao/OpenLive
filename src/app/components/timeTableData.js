@@ -102,7 +102,7 @@ export default function ResponsiveTimeTable() {
     {
       time: "18:00",
       bandName: "HERO COMPLEX",
-      university: "元共立",
+      university: "-",
     },
   ];
 
