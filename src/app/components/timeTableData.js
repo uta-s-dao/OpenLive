@@ -56,8 +56,8 @@ export default function ResponsiveTimeTable() {
     },
     {
       time: "13:30",
-      bandName: "THE ORAL CIGARETTES",
-      university: "西工大",
+      bandName: "休憩時間",
+      university: "休憩時間",
     },
     {
       time: "14:00",
@@ -66,7 +66,7 @@ export default function ResponsiveTimeTable() {
     },
     {
       time: "14:30",
-      bandName: "?",
+      bandName: "ELLEGARDEN",
       university: "Soes",
     },
     {
@@ -86,7 +86,7 @@ export default function ResponsiveTimeTable() {
     },
     {
       time: "16:30",
-      bandName: "バンド13",
+      bandName: "SHISHAMO",
       university: "歯科大",
     },
     {
@@ -97,7 +97,7 @@ export default function ResponsiveTimeTable() {
     {
       time: "17:30",
       bandName: "バンド15",
-      university: "大学15",
+      university: "",
     },
     {
       time: "18:00",
@@ -128,34 +128,46 @@ export default function ResponsiveTimeTable() {
                 <div className='pl-10 text-white'>TICKETS ¥1600</div>
               </div>
             </div>
-            <table className='min-w-full divide-y divide-gray-200'>
-              <tbody className='bg-white/90 divide-y divide-gray-100'>
-                {timeTableData.map((item, index) => (
-                  <tr
-                    key={index}
-                    className='hover:bg-gradient-to-r hover:from-red-50 hover:to-rose-50 transition-all duration-300 group'
-                  >
-                    <td className='px-5 py-2 whitespace-nowrap text-sm font-medium text-gray-500 relative'>
-                      <div className='absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-red-400 to-rose-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
-                      <div className='flex items-center space-x-3'>
-                        <span className='font-mono'>{item.time}</span>
-                      </div>
-                    </td>
-                    <td className='px-5 py-2 whitespace-nowrap text-sm font-bold text-gray-800 group-hover:text-red-700 transition-colors duration-300'>
-                      <div className='flex items-center space-x-2'>
-                        <div className='w-2 h-2 bg-gradient-to-r from-red-400 to-rose-400 rounded-full flex-shrink-0'></div>
-                        <span>{item.bandName}</span>
-                      </div>
-                    </td>
-                    <td className='px-5 py-2 whitespace-nowrap text-sm font-extrabold text-gray-500 group-hover:text-red-600 transition-colors duration-300'>
-                      <div className='flex items-center space-x-2'>
-                        <span>{item.university}</span>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <div>
+              <div
+                className='absolute inset-0 z-0 opacity-15'
+                style={{
+                  backgroundImage: `url(/fuchiari.png)`,
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "center",
+                  backgroundSize: "contain",
+                  transform: " scale(0.7)",
+                }}
+              ></div>
+              <table className='min-w-full divide-y divide-gray-200'>
+                <tbody className='bg-white/90 divide-y divide-gray-100'>
+                  {timeTableData.map((item, index) => (
+                    <tr
+                      key={index}
+                      className='hover:bg-gradient-to-r hover:from-red-50 hover:to-rose-50 transition-all duration-300 group'
+                    >
+                      <td className='px-5 py-2 whitespace-nowrap text-sm font-medium text-gray-500 relative'>
+                        <div className='absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-red-400 to-rose-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
+                        <div className='flex items-center space-x-3'>
+                          <span className='font-mono'>{item.time}</span>
+                        </div>
+                      </td>
+                      <td className='px-5 py-2 whitespace-nowrap text-sm font-bold text-gray-800 group-hover:text-red-700 transition-colors duration-300'>
+                        <div className='flex items-center space-x-2'>
+                          <div className='w-2 h-2 bg-gradient-to-r from-red-400 to-rose-400 rounded-full flex-shrink-0'></div>
+                          <span>{item.bandName}</span>
+                        </div>
+                      </td>
+                      <td className='px-5 py-2 whitespace-nowrap text-sm font-extrabold text-gray-500 group-hover:text-red-600 transition-colors duration-300'>
+                        <div className='flex items-center space-x-2'>
+                          <span>{item.university}</span>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         )}
 

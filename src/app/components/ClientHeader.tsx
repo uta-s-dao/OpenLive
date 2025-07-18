@@ -89,7 +89,7 @@ export default function ClientHeader() {
               width={985}
               height={608}
               priority
-              className='h-16 w-auto sm:h-20 sm:w-auto md:h-24 md:w-auto lg:h-28 lg:w-auto'
+              className='h-16 w-auto sm:h-20 sm:w-auto md:h-20 md:w-auto lg:h-20 lg:w-auto'
             />
           </Link>
           {/* モバイル用ハンバーガーボタン */}
@@ -135,7 +135,7 @@ export default function ClientHeader() {
         </div>
       </div>
 
-      {/* サイドメニュー（モバイル用） */}
+      {/* サイドメニュー*/}
       {isMenuOpen && (
         <div className='fixed inset-0 z-40 '>
           {/* 半透明の背景オーバーレイ */}
@@ -143,7 +143,7 @@ export default function ClientHeader() {
             className='absolute inset-0 bg-black bg-opacity-70'
             onClick={() => setIsMenuOpen(false)}
           ></div>
-          fabicon
+
           {/* サイドメニュー */}
           <div className='absolute top-0 right-0 h-full w-45 max-w-xs flex flex-col shadow-lg bg-white transform transition-transform duration-300 ease-in-out'>
             <div className='flex items-center justify-between px-4 py-3  text-white'>
