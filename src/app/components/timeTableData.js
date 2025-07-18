@@ -138,18 +138,17 @@ export default function ResponsiveTimeTable() {
                     <td className='px-5 py-2 whitespace-nowrap text-sm font-medium text-gray-500 relative'>
                       <div className='absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-red-400 to-rose-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
                       <div className='flex items-center space-x-3'>
-                        <div className='w-3 h-3 bg-gradient-to-r from-red-400 to-rose-400 rounded-full flex-shrink-0'></div>
                         <span className='font-mono'>{item.time}</span>
                       </div>
                     </td>
                     <td className='px-5 py-2 whitespace-nowrap text-sm font-bold text-gray-800 group-hover:text-red-700 transition-colors duration-300'>
                       <div className='flex items-center space-x-2'>
+                        <div className='w-2 h-2 bg-gradient-to-r from-red-400 to-rose-400 rounded-full flex-shrink-0'></div>
                         <span>{item.bandName}</span>
                       </div>
                     </td>
-                    <td className='px-5 py-2 whitespace-nowrap text-sm font-bold text-gray-500 group-hover:text-red-600 transition-colors duration-300'>
+                    <td className='px-5 py-2 whitespace-nowrap text-sm font-extrabold text-gray-500 group-hover:text-red-600 transition-colors duration-300'>
                       <div className='flex items-center space-x-2'>
-                        <div className='w-2 h-2 bg-gradient-to-r from-orange-400 to-red-400 rounded-full'></div>
                         <span>{item.university}</span>
                       </div>
                     </td>
@@ -189,21 +188,20 @@ export default function ResponsiveTimeTable() {
                     key={index}
                     className='hover:bg-gradient-to-r hover:from-red-50 hover:to-rose-50 transition-all duration-300 group'
                   >
-                    <td className='px-3 py-4 whitespace-nowrap text-xs font-medium text-gray-500 relative'>
+                    <td className='px-3 py-4 whitespace-nowrap text-sm font-medium text-gray-500 relative'>
                       <div className='absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-red-400 to-rose-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
                       <div className='flex items-center space-x-2'>
-                        <div className='w-2 h-2 bg-gradient-to-r from-red-400 to-rose-400 rounded-full flex-shrink-0'></div>
                         <span className='font-mono'>{item.time}</span>
                       </div>
                     </td>
-                    <td className='px-2 py-4 whitespace-nowrap text-xs font-bold text-gray-800 group-hover:text-red-700 transition-colors duration-300'>
+                    <td className='px-2 py-4 whitespace-nowrap text-sm font-extrabold text-gray-800 group-hover:text-red-700 transition-colors duration-300'>
                       <div className='flex items-center space-x-1'>
+                        <div className='w-2 h-2 bg-gradient-to-r from-red-400 to-rose-400 rounded-full flex-shrink-0'></div>
                         <span>{item.bandName}</span>
                       </div>
                     </td>
-                    <td className='px-2 py-4 whitespace-nowrap text-xs font-semibold text-gray-500 group-hover:text-red-600 transition-colors duration-300'>
+                    <td className='px-2 py-4 whitespace-nowrap text-sm font-bold text-gray-500 group-hover:text-red-600 transition-colors duration-300'>
                       <div className='flex items-center space-x-2'>
-                        <div className='w-1.5 h-1.5 bg-gradient-to-r from-orange-400 to-red-400 rounded-full'></div>
                         <span>{item.university}</span>
                       </div>
                     </td>

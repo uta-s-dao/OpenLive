@@ -40,7 +40,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className='min-h-screen'>
         <ClientHeader />
         <main>{children}</main>
-        <footer className='py-2 bg-white'>
+        <footer className='py-2 bg-gradient-to-br from-red-50 to-rose-50'>
           <div className='flex space-x-7 w-full items-center justify-center pt-5'>
             <SocialIcon platform='email' href={SOCIAL_URLS.EMAIL} />
             <SocialIcon platform='instagram' href={SOCIAL_URLS.INSTAGRAM} />
