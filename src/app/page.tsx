@@ -1,6 +1,6 @@
 "use client";
 import SafeLink from "./components/SafeLink";
-import { VENUE_URLS } from "./constants/urls";
+import { VENUE_URLS, SOCIAL_URLS } from "./constants/urls";
 
 import Image from "next/image";
 import ResponsiveTimeTable from "./components/timeTableData";
@@ -28,6 +28,31 @@ export default function Home() {
 
       <ResponsiveTimeTable />
 
+      <section className='py-10 px-4 md:py-10 bg-gradient-to-br from-red-50 to-rose-50'>
+        <div className='container mx-auto '>
+          <div className='flex  items-center '>
+            <div className='w-full order-2 md:order-1'>
+              <h2 className='section-title'>HERO COMPLEX ゲスト出演決定！</h2>
+              <p className='text-gray-700 mb-6 leading-relaxed'>
+                オープンライブ2025年にはゲストとして、あのHERO
+                COMPLEXさんが来てくださいます！！
+              </p>
+              <p className='text-gray-700 mb-8 leading-relaxed'>
+                実は...10年前、まだ大学生だった彼らがこのオープンライブに出演されていたそうです。そのような縁から現在は全国ツアーを行う人気バンドとなった彼らがこのゲスト出演に応じてくれました！！
+              </p>
+              <div className='flex flex-col sm:flex-row gap-4'></div>
+              <SafeLink
+                href={SOCIAL_URLS.HEROCOMPLEX}
+                className='button-secondary'
+                external={true}
+              >
+                HERO COMPLEX
+              </SafeLink>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 概要セクション */}
       <section className='py-10 px-4 md:py-10 bg-gradient-to-br from-red-50 to-rose-50'>
         <div className='container mx-auto '>
@@ -36,7 +61,7 @@ export default function Home() {
               <h2 className='section-title'>オープンライブについて</h2>
               <p className='text-gray-700 mb-6 leading-relaxed'>
                 福岡や北九州の大学軽音楽部のための音楽フェスティバルです。
-                今年は14大学が参加します。
+                今年は13大学が参加します。
               </p>
               <p className='text-gray-700 mb-8 leading-relaxed'>
                 2025年は、福岡のビートステーションでの開催を予定しています。より多くの観客に音楽の魅力を届けるため、チケットを無料化する計画があります

@@ -8,11 +8,11 @@ export default function HighlightsSection() {
     {
       year: "2024",
       description:
-        "過去最大の大学が参加しました。場所は西小倉のwowというところで行いなした。",
+        "過去最大の大学が参加しました。場所は西小倉のwowというところで行いました。",
       stats: [
         { label: "Attendees", value: "150" },
-        { label: "Bands", value: "12" },
-        { label: "Universities", value: "14" },
+        { label: "Bands", value: "13" },
+        { label: "Universities", value: "13" },
       ],
     },
 
@@ -21,17 +21,17 @@ export default function HighlightsSection() {
       description: "数多くのレベルの高いバンドが出演し大きく盛り上がりました",
       stats: [
         { label: "Attendees", value: "120" },
-        { label: "Bands", value: "12" },
-        { label: "Universities", value: "10" },
+        { label: "Bands", value: "13" },
+        { label: "Universities", value: "11" },
       ],
     },
     {
       year: "2022",
       description:
-        "初めてのオープンライブで、みんなで力を合わせてオープンライブを作り上げました",
+        "10年以上前からオープンライブは開催されていましたが、コロナで中止になっていました。2022年はコロナから復活したライブになりました。",
       stats: [
         { label: "Attendees", value: "100" },
-        { label: "Bands", value: "12" },
+        { label: "Bands", value: "11" },
         { label: "Universities", value: "10" },
       ],
     },

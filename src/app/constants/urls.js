@@ -9,4 +9,5 @@ export const SOCIAL_URLS = {
   EMAIL: "contact@openlive.com",
   INSTAGRAM: "https://www.instagram.com/open_live__",
   YOUTUBE: "https://www.youtube.com/@OpenLive2025",
+  HEROCOMPLEX: "https://www.instagram.com/hero_complex_official",
 };
