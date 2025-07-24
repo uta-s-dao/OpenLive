@@ -1,9 +1,10 @@
 import { ReactNode } from "react";
+import { Metadata } from "next";
 import ClientHeader from "./components/ClientHeader";
 import SocialIcon from "./components/SocialIcon";
 import { SOCIAL_URLS } from "./constants/urls";
 
-export const metadata = {
+export const metadata: Metadata = {
   metadataBase: new URL("https://openlive.cc"),
   title: "オープンライブ",
   description:
