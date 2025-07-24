@@ -38,7 +38,7 @@ export default function Home() {
                 COMPLEXさんが来てくださいます！！
               </p>
               <p className='text-gray-700 mb-8 leading-relaxed'>
-                実は...10年前、まだ大学生だった彼らがこのオープンライブに出演されていたそうです。そのような縁から現在は全国ツアーを行う人気バンドとなった彼らがこのゲスト出演に応じてくれました！！
+                実は...10年前、まだ大学生だった彼らがこのオープンライブに出演されていたそうです。そのような縁から現在は全国ツアーを行う人気バンドとなった彼らがこのゲスト出演に応じてくださいました！！
               </p>
               <div className='flex flex-col sm:flex-row gap-4'></div>
               <SafeLink

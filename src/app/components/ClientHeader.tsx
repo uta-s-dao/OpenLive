@@ -151,13 +151,13 @@ export default function ClientHeader() {
             </div>
 
             <div className='px-6 py-8 bg-white flex-grow'>
-              <div className='text-center max-w-md mx-auto'>
+              <div className='text-center max-w-md mx-auto '>
                 {links.map((link, index) => (
                   <div key={index} className={`${index > 0 ? "mt-6" : ""}`}>
                     <SafeLink
                       href={link.href}
                       external={link.external}
-                      className='group relative overflow-hidden inline-block px-8 py-3 w-full rounded-md bg-gray-100 transition-all duration-300 hover:bg-gray-200 hover:shadow-md'
+                      className='group relative overflow-hidden inline-block px-8 py-1 w-full rounded-md bg-gray-100 transition-all duration-300 hover:bg-gray-200 hover:shadow-md'
                       onClick={() => setIsMenuOpen(false)}
                     >
                       <span className='relative z-10 text-gray-800 font-medium text-lg transition-all duration-300 group-hover:text-red-600 group-hover:font-bold'>
