@@ -59,12 +59,12 @@ export default function ResponsiveTimeTable() {
     },
 
     {
-      time: "13:30",
+      time: "13:00",
       bandName: "RADWIMPS",
       university: "福岡教育大学",
     },
     {
-      time: "14:00",
+      time: "13:30",
       bandName: "SHISHAMO",
       university: " 九州歯科大学",
     },
