@@ -1,5 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
+import Image from "next/image";
+import { Playfair_Display } from "next/font/google";
+
+// Initialize the Playfair Display font
+const playfair = Playfair_Display({ subsets: ["latin"] });
 
 // const cinzel = Cinzel({ subsets: ["latin"] });
 
@@ -104,13 +109,18 @@ export default function ResponsiveTimeTable() {
     },
     {
       time: "17:30",
-      bandName: "HERO COMPLEX",
+      bandName: "HERO COMPLEX(50min)",
       university: "GUEST",
     },
     {
       time: "18:00",
       bandName: "HERO COMPLEX",
       university: "GUEST",
+    },
+    {
+      time: "18:30",
+      bandName: "(END)",
+      university: "",
     },
   ];
 
@@ -127,7 +137,7 @@ export default function ResponsiveTimeTable() {
         {/* PC表示用のテーブル */}
         {!isMobile && (
           <div className='container mx-auto shadow-2xl rounded-2xl overflow-hidden border border-gray-100 bg-white/95 backdrop-blur-sm relative'>
-            {/* <div className='flex justify-between  pt-1 border-b-black px-2 text-lg bg-gradient-to-r from-red-400 to-rose-400'>
+            <div className='flex justify-between  pt-1 border-b-black px-2 text-lg bg-gradient-to-r from-red-400 to-rose-400'>
               <div
                 className={` text-gray-100 text-xl font-bold  ${playfair.className}`}
               >
@@ -149,7 +159,7 @@ export default function ResponsiveTimeTable() {
                 height={80}
                 objectFit='contain'
               />
-            </div> */}
+            </div>
 
             <div className='bg-gradient-to-r from-red-400 to-rose-400'>
               <h1 className='text-2xl font-bold pt-3 text-center'>
@@ -206,7 +216,7 @@ export default function ResponsiveTimeTable() {
         {/* モバイル表示用のカードレイアウト */}
         {isMobile && (
           <div className='container mx-1 shadow-2xl rounded-2xl overflow-hidden border border-gray-100 bg-white/95 backdrop-blur-sm relative'>
-            {/* <div className='flex justify-between z-10 relative pt-1 border-b-black px-2 text-lg bg-gradient-to-r from-red-400 to-rose-400'>
+            <div className='flex justify-between z-10 relative pt-1 border-b-black px-2 text-lg bg-gradient-to-r from-red-400 to-rose-400'>
               <div
                 className={` text-gray-100 text-xl font-bold  ${playfair.className}`}
               >
@@ -228,7 +238,7 @@ export default function ResponsiveTimeTable() {
                 height={80}
                 objectFit='contain'
               />
-            </div> */}
+            </div>
             <div className=' z-10 relative bg-gradient-to-r from-red-400 to-rose-400 '>
               <h1 className='text-2xl font-bold pt-3 text-center'>
                 オープンライブ
