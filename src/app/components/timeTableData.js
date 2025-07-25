@@ -3,10 +3,10 @@ import { useState, useEffect } from "react";
 // import Image from "next/image";
 // import { Playfair_Display } from "next/font/google";
 
-// Initialize the Playfair Display font
+// // Initialize the Playfair Display font
 // const playfair = Playfair_Display({ subsets: ["latin"] });
 
-// const cinzel = Cinzel({ subsets: ["latin"] });
+// // const cinzel = Cinzel({ subsets: ["latin"] });
 
 export default function ResponsiveTimeTable() {
   const [isMobile, setIsMobile] = useState(false);
@@ -109,16 +109,11 @@ export default function ResponsiveTimeTable() {
     },
     {
       time: "17:30",
-      bandName: "HERO COMPLEX(50min)",
+      bandName: "HERO COMPLEX (50min)",
       university: "GUEST",
     },
     {
-      time: "18:00",
-      bandName: "HERO COMPLEX",
-      university: "GUEST",
-    },
-    {
-      time: "18:30",
+      time: "18:20",
       bandName: "(END)",
       university: "",
     },
