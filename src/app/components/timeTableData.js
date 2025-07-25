@@ -132,7 +132,7 @@ export default function ResponsiveTimeTable() {
       <div className='absolute inset-0 bg-gradient-to-br from-red-50/70 to-rose-50/70'></div>
 
       {/* コンテンツ */}
-      <div className='container mx-auto px-4 relative z-5'>
+      <div className='container mx-auto px-2 relative z-5'>
         <h2 className='section-title'>TIME TABLE</h2>
         {/* PC表示用のテーブル */}
         {!isMobile && (
