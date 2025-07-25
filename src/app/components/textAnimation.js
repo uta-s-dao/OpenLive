@@ -245,7 +245,7 @@ export default function SequentialTextAnimation() {
         {chars.map((char, index) => (
           <span
             key={index}
-            className={`char-container inline-block text-white drop-shadow-lg ${
+            className={`char-container inline-block text-gray-300 drop-shadow-lg ${
               visibleChars.includes(index) ? "char-visible" : ""
             } ${animationsComplete ? "animations-complete" : ""}`}
             style={{
@@ -283,7 +283,7 @@ export default function SequentialTextAnimation() {
       </div>
 
       <div
-        className={`text-3xl md:text-4xl text-white font-bold transition-all duration-1000 ${
+        className={`text-3xl md:text-4xl text-gray-300 font-bold transition-all duration-1000 ${
           showDate ? "opacity-100" : "opacity-0"
         } ${animationsComplete ? "animations-complete" : ""}`}
         style={{

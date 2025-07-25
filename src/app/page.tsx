@@ -2,7 +2,6 @@
 import SafeLink from "./components/SafeLink";
 import { VENUE_URLS, SOCIAL_URLS } from "./constants/urls";
 
-import Image from "next/image";
 import ResponsiveTimeTable from "./components/timeTableData";
 import HighlightsSection from "./components/HighlightsSection";
 import SequentialTextAnimation from "./components/textAnimation";
@@ -32,10 +31,9 @@ export default function Home() {
         <div className='container mx-auto '>
           <div className='flex  items-center '>
             <div className='w-full order-2 md:order-1'>
-              <h2 className='section-title'>HERO COMPLEX ゲスト出演決定！</h2>
-              <p className='text-gray-700 mb-6 leading-relaxed'>
-                オープンライブ2025年にはゲストとして、あのHERO
-                COMPLEXさんが来てくださいます！！
+              <h2 className='section-title text-8xl'>ヒーローが来るぞー！</h2>
+              <p className='text-gray-700  mb-6 leading-relaxed text-2xl'>
+                HERO COMPLEX ゲスト出演決定！
               </p>
               <p className='text-gray-700 mb-8 leading-relaxed'>
                 実は...10年前、まだ大学生だった彼らがこのオープンライブに出演されていたそうです。そのような縁から現在は全国ツアーを行う人気バンドとなった彼らがこのゲスト出演に応じてくださいました！！
@@ -46,7 +44,7 @@ export default function Home() {
                 className='button-secondary'
                 external={true}
               >
-                HERO COMPLEX
+                HERO COMPLEX instagram
               </SafeLink>
             </div>
           </div>
@@ -60,11 +58,13 @@ export default function Home() {
             <div className='w-full order-2 md:order-1'>
               <h2 className='section-title'>オープンライブについて</h2>
               <p className='text-gray-700 mb-6 leading-relaxed'>
-                福岡や北九州の大学軽音楽部のための音楽フェスティバルです。
-                今年は13大学が参加します。
+                オープンライブは、北九州エリアの大学によって毎年開催されてきた合同ライブイベントです。
+                今年はその枠を広げ、福岡、下関、熊本からも新たなバンドが参加。
+                エリアを越えて集まった学生たちが、それぞれの音を響かせます。
               </p>
               <p className='text-gray-700 mb-8 leading-relaxed'>
-                2025年は、福岡のビートステーションでの開催を予定しています。より多くの観客に音楽の魅力を届けるため、チケットを無料化する計画があります
+                音楽が好きなら、きっと刺さる。
+                ジャンルを問わず、今の学生たちの“リアル”がここにあります。
               </p>
               <div className='flex flex-col sm:flex-row gap-4'></div>
             </div>
@@ -78,20 +78,8 @@ export default function Home() {
           <h2 className='section-title'>会場情報</h2>
 
           <div className='grid grid-cols-1 md:grid-cols-2 gap-8 items-center'>
-            <div className='rounded-xl overflow-hidden shadow-lg relative h-64 md:h-96'>
-              <Image
-                src='/beatstation.jpg'
-                alt='ビートステーション'
-                sizes='(max-width: 768px) 100vw, 600px'
-                fill
-                className='object-cover'
-              />
-            </div>
-
             <div>
-              <h3 className='text-xl font-bold mb-3'>
-                福岡 ビートステーション
-              </h3>
+              <h3 className='text-xl font-bold mb-3'>BEAT STATION</h3>
               <p className='text-gray-700 mb-4'>
                 福岡市中央区渡辺通4-11-4
                 <br />

@@ -31,6 +31,7 @@ export default function SafeLink({
       const urlObj = new URL(url);
       const allowedDomains = [
         "www.google.com",
+        "docs.google.com",
         "maps.google.com",
         "www.instagram.com",
         "instagram.com",

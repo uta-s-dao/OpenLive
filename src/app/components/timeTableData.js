@@ -1,6 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 
+// const cinzel = Cinzel({ subsets: ["latin"] });
+
 export default function ResponsiveTimeTable() {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -26,75 +28,79 @@ export default function ResponsiveTimeTable() {
   const timeTableData = [
     {
       time: "10:30",
-      bandName: "ONE OK ROCK",
-      university: "九国大",
+      bandName: "THE ORAL CIGARETTES",
+      university: "西日本工業大学",
     },
+    ,
     {
       time: "11:00",
-      bandName: "Maki",
-      university: "共立大",
+      bandName: "ハルカミライ",
+      university: "下関市立大学",
     },
     {
       time: "11:30",
+      bandName: "ONE OK ROCK",
+      university: "九州国際大学",
+    },
+    {
+      time: "12:00",
       bandName: "OKAMOTO'S",
       university: "熊本大学",
     },
     {
-      time: "12:00",
-      bandName: "MY FIRST STORY",
-      university: "産医",
-    },
-    {
       time: "12:30",
-      bandName: "RADWIMPS",
-      university: "福教",
+      bandName: "MY FIRST STORY",
+      university: "産業医科大学",
     },
-    {
-      time: "13:00",
-      bandName: "休憩時間",
-      university: "休憩時間",
-    },
+
     {
       time: "13:30",
-      bandName: "ELLEGARDEN",
-      university: "Soes",
+      bandName: "RADWIMPS",
+      university: "福岡教育大学",
     },
     {
       time: "14:00",
-      bandName: "マキシマム ザ ホルモン",
-      university: "福大",
+      bandName: "SHISHAMO",
+      university: " 九州歯科大学",
     },
+
+    {
+      time: "14:00",
+      bandName: "KANA-BOON",
+      university: "So&Soes",
+    },
+
     {
       time: "14:30",
-      bandName: "ハルカミライ",
-      university: "下市",
+      bandName: "マキシマム ザ ホルモン",
+      university: "福岡大学FUSE",
     },
 
     {
       time: "15:00",
       bandName: "luv",
-      university: "九大芸工",
+      university: "九州大学芸工",
     },
-
     {
       time: "15:30",
       bandName: "KOTORI",
-      university: "スピ",
+      university: "Free Spirits",
     },
     {
       time: "16:00",
-      bandName: "SHISHAMO",
-      university: "歯科大",
+      bandName: "Maki",
+      university: "九州共立大学",
     },
+
     {
       time: "16:30",
       bandName: "Suspended 4th",
-      university: "西南大",
+      university: "西南学院",
     },
     {
       time: "17:00",
       bandName: "アジカン",
-      university: "九工大",
+      university: "九州工業大学",
     },
     {
       time: "17:30",
@@ -121,11 +127,37 @@ export default function ResponsiveTimeTable() {
         {/* PC表示用のテーブル */}
         {!isMobile && (
           <div className='container mx-auto shadow-2xl rounded-2xl overflow-hidden border border-gray-100 bg-white/95 backdrop-blur-sm relative'>
+            {/* <div className='flex justify-between  pt-1 border-b-black px-2 text-lg bg-gradient-to-r from-red-400 to-rose-400'>
+              <div
+                className={` text-gray-100 text-xl font-bold  ${playfair.className}`}
+              >
+                SPECIAL GUEST:
+                <div
+                  className={`text-gray-100 font-bold  text-4xl tracking-wider ${playfair.className}`}
+                >
+                  HERO COMPLEX
+                </div>
+              </div>
+              <div className='ml-auto mb-1 self-end pr-2'>
+                取り置きなどの詳細⇒
+              </div>
+              <Image
+                className='mr-2'
+                src='/QR_426703.png'
+                alt='Sample Image'
+                width={80}
+                height={80}
+                objectFit='contain'
+              />
+            </div> */}
+
             <div className='bg-gradient-to-r from-red-400 to-rose-400'>
-              <h1 className='text-2xl font-bold pt-3 text-center'>OPENLIVE</h1>
+              <h1 className='text-2xl font-bold pt-3 text-center'>
+                オープンライブ
+              </h1>
               <div className='flex justify-center items-center pb-3'>
                 <div className='text-xl text-center'>8/20(Wed)</div>
-                <div className='pl-10 text-2xl'>TICKETS ¥1600</div>
+                <div className='pl-10 text-2xl'>TICKETS 1000(+1D600)</div>
               </div>
             </div>
             <div className='relative'>
@@ -174,11 +206,36 @@ export default function ResponsiveTimeTable() {
         {/* モバイル表示用のカードレイアウト */}
         {isMobile && (
           <div className='container mx-1 shadow-2xl rounded-2xl overflow-hidden border border-gray-100 bg-white/95 backdrop-blur-sm relative'>
-            <div className='bg-gradient-to-r from-red-400 to-rose-400 '>
-              <h1 className='text-2xl font-bold pt-3 text-center'>OPENLIVE</h1>
+            {/* <div className='flex justify-between z-10 relative pt-1 border-b-black px-2 text-lg bg-gradient-to-r from-red-400 to-rose-400'>
+              <div
+                className={` text-gray-100 text-xl font-bold  ${playfair.className}`}
+              >
+                SPECIAL GUEST:
+                <div
+                  className={`text-gray-100 font-bold  text-4xl tracking-wider ${playfair.className}`}
+                >
+                  HERO COMPLEX
+                </div>
+              </div>
+              <div className='ml-auto mb-1 self-end pr-2'>
+                取り置きなどの詳細⇒
+              </div>
+              <Image
+                className='mr-2'
+                src='/QR_426703.png'
+                alt='Sample Image'
+                width={80}
+                height={80}
+                objectFit='contain'
+              />
+            </div> */}
+            <div className=' z-10 relative bg-gradient-to-r from-red-400 to-rose-400 '>
+              <h1 className='text-2xl font-bold pt-3 text-center'>
+                オープンライブ
+              </h1>
               <div className='flex justify-center items-center pb-3'>
                 <div className='text-center text-xl'>8/20(Wed)</div>
-                <div className='pl-10 text-xl'>TICKETS ¥1600</div>
+                <div className='pl-10 text-xl'>TICKETS 1000(+1D600)</div>
               </div>
             </div>
             <div className='relative'>

@@ -13,7 +13,7 @@
 ## 始める方法
 
 ブラウザで
-https://open-live.vercel.app/
+https://openlive.cc
 を開いて結果を確認します。
 
 app/page.tsx を変更してページの編集を開始できます。ファイルを編集すると、ページが自動的に更新されます。
