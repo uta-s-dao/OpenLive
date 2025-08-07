@@ -4,6 +4,7 @@ import { VENUE_URLS, SOCIAL_URLS } from "./constants/urls";
 
 import ResponsiveTimeTable from "./components/timeTableData";
 import HighlightsSection from "./components/HighlightsSection";
+import Kyousann from "./components/kennkatsu";
 import SequentialTextAnimation from "./components/textAnimation";
 
 export default function Home() {
@@ -148,7 +149,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
+      <Kyousann />
       <HighlightsSection />
     </>
   );
