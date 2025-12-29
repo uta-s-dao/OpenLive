@@ -76,7 +76,7 @@ export default function SecondYearLive() {
     {
       time: "17:30",
       bandName: "KOTORI",
-      university: "野次馬",
+      university: "九工大",
     },
   ];
 
