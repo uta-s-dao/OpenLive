@@ -104,7 +104,7 @@ export default function SecondYearLive() {
           {!isMobile && (
             <div className='container bg-cover mx-1  overflow-hidden  relative'>
               <div
-                className='absolute inset-0 bg-cover opacity-35'
+                className='absolute inset-0 bg-cover opacity-50'
                 style={{ backgroundImage: "url('/pexels-bdna-2807495.jpg')" }}
               ></div>
 
