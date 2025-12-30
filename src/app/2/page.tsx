@@ -102,48 +102,45 @@ export default function SecondYearLive() {
           </h2>
 
           {!isMobile && (
-            <div className='container mx-auto shadow-2xl rounded-3xl overflow-hidden border-2 border-red-200 bg-white/95 backdrop-blur-sm relative'>
-              <div className='bg-gradient-to-r from-red-600 via-pink-600 to-red-600'>
-                <h3 className='text-3xl font-black pt-6 text-center text-white'>
-                  2年生ライブ
-                </h3>
-                <div className='flex justify-center items-center gap-8 pb-6'>
-                  <div className='text-xl text-white font-semibold'>
-                    1/17 (土)
-                  </div>
-                  <div className='text-xl text-white font-semibold'>
-                    小倉Fuse
-                  </div>
-                  <div className='text-2xl text-white font-bold'>
-                    TICKET: ¥1,600
+            <div className='container bg-cover mx-1  overflow-hidden  relative'>
+              <div
+                className='absolute inset-0 bg-cover opacity-35'
+                style={{ backgroundImage: "url('/pexels-bdna-2807495.jpg')" }}
+              ></div>
+
+              <div className='z-10 relative m-2 text-red-500'>
+                <div className='flex flex-col justify-center items-center gap-2 pb-4'>
+                  <h3 className='text-2xl  pt-4 text-center font-bold border-b border-red-500'>
+                    2年生ライブ
+                  </h3>
+                  <div className='text-lg  font-semibold border-b border-red-500'>
+                    1/17 (土) @ 小倉Fuse TICKET: ¥1,600
                   </div>
                 </div>
               </div>
 
-              <div className='relative'>
+              <div className='z-10 relative'>
                 <table className='min-w-full relative z-5'>
-                  <tbody className='bg-white/90'>
+                  <tbody>
                     {timeTableData.map((item, index) => (
                       <tr
                         key={index}
-                        className='hover:bg-gradient-to-r hover:from-red-50 hover:via-pink-50 hover:to-red-50 transition-all duration-300  border-b border-gray-100'
+                        className='hover:bg-gradient-to-r hover:from-red-50 hover:to-pink-50 transition-all duration-300 group border-b border-gray-200'
                       >
-                        <td className='px-8 py-5 whitespace-nowrap text-base font-bold text-gray-600 relative'>
-                          <div className='absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-red-500 via-pink-500 to-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
-                          <div className='flex items-center space-x-4'>
-                            <div className='w-2 h-2 bg-gradient-to-r from-red-400 to-pink-400 rounded-full group-hover:scale-125 transition-transform duration-300'></div>
-                            <span className='font-mono text-lg'>
-                              {item.time}
-                            </span>
+                        <td className='px-2 py-3 whitespace-nowrap text-sm font-semibold text-gray-500 relative'>
+                          <div className='absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-red-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
+                          <div className='flex items-center space-x-2'>
+                            <span className='font-mono'>{item.time}</span>
                           </div>
                         </td>
-                        <td className='px-8 py-5 whitespace-nowrap text-lg font-black text-gray-800 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-red-600 group-hover:to-pink-600 group-hover:bg-clip-text transition-all duration-300'>
-                          <div className='flex items-center space-x-3'>
+                        <td className='px-2 py-3 whitespace-nowrap text-base font-black text-gray-800 group-hover:text-red-700 transition-colors duration-300'>
+                          <div className='flex items-center space-x-2'>
+                            <div className='w-1 h-1 bg-red-500 rounded-full flex-shrink-0'></div>
                             <span>{item.bandName}</span>
                           </div>
                         </td>
-                        <td className='px-8 py-5 whitespace-nowrap text-base font-bold text-gray-500 group-hover:text-red-600 transition-colors duration-300'>
-                          <div className='flex items-center space-x-2'>
+                        <td className='px-2 py-3 whitespace-nowrap text-sm font-bold text-gray-500 group-hover:text-pink-600 transition-colors duration-300'>
+                          <div className='flex items-center space-x-1'>
                             <span>{item.university}</span>
                           </div>
                         </td>
