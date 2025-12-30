@@ -1,8 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Zen_Kaku_Gothic_New } from "next/font/google";
+import { Noto_Serif_JP } from "next/font/google";
 
-const playfair = Zen_Kaku_Gothic_New({
+const playfair = Noto_Serif_JP({
   weight: ["400", "700"],
   subsets: ["cyrillic"],
 });
@@ -81,7 +81,7 @@ export default function SecondYearLive() {
     },
     {
       time: "17:00",
-      bandName: "アジカン",
+      bandName: "ASIAN KUNG-FU GENERATION",
       university: "スピ",
     },
     {
@@ -127,7 +127,7 @@ export default function SecondYearLive() {
                         key={index}
                         className='hover:bg-gradient-to-r hover:from-red-50 hover:to-pink-50 transition-all duration-300 group border-b border-gray-200'
                       >
-                        <td className='px-2 py-3 whitespace-nowrap text-sm font-semibold text-gray-500 relative'>
+                        <td className='px-2 py-3 whitespace-nowrap text-sm font-semibold text-gray-700 relative'>
                           <div className='absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-red-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
                           <div className='flex items-center space-x-2'>
                             <span className='font-mono'>{item.time}</span>
@@ -139,7 +139,7 @@ export default function SecondYearLive() {
                             <span>{item.bandName}</span>
                           </div>
                         </td>
-                        <td className='px-2 py-3 whitespace-nowrap text-sm font-bold text-gray-500 group-hover:text-pink-600 transition-colors duration-300'>
+                        <td className='px-2 py-3 whitespace-nowrap text-sm font-bold text-gray-700 group-hover:text-pink-600 transition-colors duration-300'>
                           <div className='flex items-center space-x-1'>
                             <span>{item.university}</span>
                           </div>
