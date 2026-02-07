@@ -39,15 +39,16 @@ const timeTableData = [
     bandName: "すりぃ",
     university: "福教大",
   },
+ 
   {
     time: "13:00",
-    bandName: "SPYAIR",
-    university: "Soes",
-  },
-  {
-    time: "13:30",
-    bandName: "stag",
+    bandName: "マカロニえんぴつ",
     university: "西工大",
+  },
+   {
+    time: "13:30",
+   bandName: "SIX LOUNGE",
+    university: "スピ",
   },
   {
     time: "14:00",
@@ -59,11 +60,13 @@ const timeTableData = [
      bandName: "ELLEGARDEN",
     university: "野次馬",
   },
-  {
+   {
     time: "15:00",
-   bandName: "SIX LOUNGE",
-    university: "スピ",
+    bandName: "SPYAIR",
+    university: "Soes",
   },
+  
+ 
   {
     time: "15:30",
     bandName: "Maki",
@@ -157,7 +160,7 @@ const timeTableData = [
               <div className='z-10 relative m-1 text-red-500'>
                 <div className='flex flex-col justify-center items-center gap-2 pb-1'>
                   <h3 className='text-2xl  pt-4 text-center font-bold'>
-                    1年生ライブ（未確定）
+                    1年生ライブ
                   </h3>
                   <div className='text-sm  font-semibold'>
                     2/19 (木) @ LIVE SOPT WOW!
