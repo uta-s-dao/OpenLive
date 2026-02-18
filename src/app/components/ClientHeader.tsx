@@ -68,6 +68,7 @@ export default function ClientHeader() {
     { href: VENUE_URLS.FORM, label: "取り置き", external: false },
     { href: VENUE_URLS.BEAT_STATION_MAP, label: "会場情報", external: true },
     { href: VENUE_URLS.OTHER_LIVES, label: "他のライブ", external: false },
+    { href: "/create", label: "タイムテーブル作成", external: false },
   ];
 
   return (
