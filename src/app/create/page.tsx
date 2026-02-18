@@ -32,6 +32,7 @@ export default function CreatePage() {
   const [bgOpacity, setBgOpacity] = useState(50);
   const [rows, setRows] = useState<TimeTableRow[]>(DEFAULT_ROWS);
   const [showPreview, setShowPreview] = useState(false);
+  const [showUniversity, setShowUniversity] = useState(true);
   const [uploadedImages, setUploadedImages] = useState<string[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -213,62 +214,65 @@ export default function CreatePage() {
 
             {/* タイムテーブル */}
             <div className="bg-white rounded-2xl shadow p-6">
-              <h2 className="text-base font-bold text-gray-700 mb-4 border-b pb-2">タイムテーブル</h2>
+              <div className="flex items-center justify-between mb-4 border-b pb-2">
+                <h2 className="text-base font-bold text-gray-700">タイムテーブル</h2>
+                <button
+                  onClick={() => setShowUniversity(!showUniversity)}
+                  className={`px-3 py-1 rounded-full text-xs font-bold border transition ${
+                    showUniversity
+                      ? "bg-gray-100 text-gray-500 border-gray-300 hover:bg-gray-200"
+                      : "bg-red-500 text-white border-red-500 hover:bg-red-600"
+                  }`}
+                >
+                  {showUniversity ? "大学名を隠す" : "大学名を表示"}
+                </button>
+              </div>
               <div className="space-y-3">
                 {rows.map((row, index) => (
-                  /* スマホ: カード型縦積み / PC: 横並びグリッド */
-                  <div key={index} className="border border-gray-200 rounded-xl p-3 md:border-0 md:p-0 md:grid md:grid-cols-[2rem_5rem_1fr_6rem_2rem] md:gap-2 md:items-center">
-                    {/* 行番号 + 削除ボタン (スマホは上部右寄せ、PCは別セル) */}
-                    <div className="flex justify-between items-center mb-2 md:mb-0 md:contents">
-                      <span className="text-xs text-gray-400 font-semibold md:text-center">{index + 1}</span>
-                      {/* PCの削除ボタンはgridの最後に配置 */}
-                      <button
-                        onClick={() => removeRow(index)}
-                        disabled={rows.length === 1}
-                        className="md:hidden text-gray-300 hover:text-red-500 disabled:opacity-20 transition text-base font-bold leading-none"
-                        aria-label="削除"
-                      >
-                        ✕
-                      </button>
-                    </div>
+                  /* スマホ・PC共通: 横並びグリッド */
+                  <div key={index} className={`grid gap-1 items-end md:gap-2 md:items-center border border-gray-200 rounded-xl px-2 py-2 md:border-0 md:p-0 md:rounded-none ${showUniversity ? "grid-cols-[1.5rem_3.5rem_1fr_4.5rem_1.5rem] md:grid-cols-[2rem_5rem_1fr_6rem_2rem]" : "grid-cols-[1.5rem_3.5rem_1fr_1.5rem] md:grid-cols-[2rem_5rem_1fr_2rem]"}`}>
+                    {/* 行番号 */}
+                    <span className="text-xs text-gray-400 font-semibold text-center self-center pb-1 md:pb-0">{index + 1}</span>
                     {/* 時間 */}
-                    <div className="mb-2 md:mb-0">
-                      <label className="block text-xs text-gray-400 mb-0.5 md:hidden">時間</label>
+                    <div>
+                      <label className="block text-xs text-gray-400 mb-0.5">時間</label>
                       <input
                         type="text"
                         value={row.time}
                         onChange={(e) => updateRow(index, "time", e.target.value)}
                         placeholder="11:30"
-                        className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-base focus:outline-none focus:ring-2 focus:ring-red-400 font-mono md:py-1.5 md:text-sm"
+                        className="w-full border border-gray-300 rounded-lg px-2 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-400 font-mono md:px-3 md:py-1.5"
                       />
                     </div>
                     {/* バンド名 */}
-                    <div className="mb-2 md:mb-0">
-                      <label className="block text-xs text-gray-400 mb-0.5 md:hidden">バンド名</label>
+                    <div>
+                      <label className="block text-xs text-gray-400 mb-0.5">バンド名</label>
                       <input
                         type="text"
                         value={row.bandName}
                         onChange={(e) => updateRow(index, "bandName", e.target.value)}
                         placeholder="バンド名"
-                        className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-base focus:outline-none focus:ring-2 focus:ring-red-400 md:py-1.5 md:text-sm"
+                        className="w-full border border-gray-300 rounded-lg px-2 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-400 md:px-3 md:py-1.5"
                       />
                     </div>
                     {/* 大学名 */}
-                    <div className="mb-0">
-                      <label className="block text-xs text-gray-400 mb-0.5 md:hidden">大学名</label>
-                      <input
-                        type="text"
-                        value={row.university}
-                        onChange={(e) => updateRow(index, "university", e.target.value)}
-                        placeholder="大学名"
-                        className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-base focus:outline-none focus:ring-2 focus:ring-red-400 md:py-1.5 md:text-sm"
-                      />
-                    </div>
-                    {/* PC用削除ボタン */}
+                    {showUniversity && (
+                      <div>
+                        <label className="block text-xs text-gray-400 mb-0.5">大学名</label>
+                        <input
+                          type="text"
+                          value={row.university}
+                          onChange={(e) => updateRow(index, "university", e.target.value)}
+                          placeholder="大学名"
+                          className="w-full border border-gray-300 rounded-lg px-2 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-400 md:px-3 md:py-1.5"
+                        />
+                      </div>
+                    )}
+                    {/* 削除ボタン */}
                     <button
                       onClick={() => removeRow(index)}
                       disabled={rows.length === 1}
-                      className="hidden md:block text-gray-300 hover:text-red-500 disabled:opacity-20 transition text-base font-bold leading-none text-center"
+                      className="text-gray-300 hover:text-red-500 disabled:opacity-20 transition text-base font-bold leading-none text-center self-center pb-1 md:pb-0"
                       aria-label="削除"
                     >
                       ✕
@@ -336,9 +340,11 @@ export default function CreatePage() {
                               <span>{item.bandName || "(バンド名)"}</span>
                             </div>
                           </td>
-                          <td className="px-2 py-3 whitespace-nowrap text-sm font-bold text-gray-800 group-hover:text-pink-600 transition-colors duration-300">
-                            {item.university || "(大学名)"}
-                          </td>
+                          {showUniversity && (
+                            <td className="px-2 py-3 whitespace-nowrap text-sm font-bold text-gray-800 group-hover:text-pink-600 transition-colors duration-300">
+                              {item.university || "(大学名)"}
+                            </td>
+                          )}
                         </tr>
                       ))}
                     </tbody>
