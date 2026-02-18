@@ -1,5 +1,6 @@
 "use client";
 import { useState, useRef } from "react";
+import { toPng } from "html-to-image";
 import { Noto_Serif_JP } from "next/font/google";
 
 const playfair = Noto_Serif_JP({
@@ -58,6 +59,20 @@ export default function CreatePage() {
   const [showTicketPrice, setShowTicketPrice] = useState(true);
   const [uploadedImages, setUploadedImages] = useState<string[]>([]);
   const previewFileInputRef = useRef<HTMLInputElement>(null);
+  const tableRef = useRef<HTMLDivElement>(null);
+
+  const saveAsImage = async () => {
+    if (!tableRef.current) return;
+    try {
+      const dataUrl = await toPng(tableRef.current, { pixelRatio: 2 });
+      const link = document.createElement("a");
+      link.download = "timetable.png";
+      link.href = dataUrl;
+      link.click();
+    } catch (e) {
+      console.error("画像の保存に失敗しました", e);
+    }
+  };
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -252,7 +267,7 @@ export default function CreatePage() {
             <section className="py-10 relative overflow-hidden">
              
 
-              <div className="relative overflow-hidden">
+              <div ref={tableRef} className="relative overflow-hidden">
                 {/* 背景画像 */}
                 <div
                   className="absolute inset-0 bg-cover bg-center"
@@ -425,12 +440,21 @@ export default function CreatePage() {
               </div>
             </div>
 
-            <button
-              onClick={() => setShowPreview(false)}
-              className="w-full py-3 border-2 border-gray-300 rounded-2xl text-sm text-gray-500 hover:border-red-400 hover:text-red-500 transition font-semibold"
-            >
-              編集に戻る
-            </button>
+            <div className="space-y-3 mt-4">
+              <button
+                onClick={saveAsImage}
+                className="w-full py-4 bg-gradient-to-r from-red-500 to-pink-500 text-white text-lg font-black rounded-2xl shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-200"
+              >
+                画像として保存
+              </button>
+
+              <button
+                onClick={() => setShowPreview(false)}
+                className="w-full py-3 border-2 border-gray-300 rounded-2xl text-sm text-gray-500 hover:border-red-400 hover:text-red-500 transition font-semibold"
+              >
+                編集に戻る
+              </button>
+            </div>
           </div>
         )}
       </div>
