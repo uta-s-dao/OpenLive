@@ -57,7 +57,7 @@ export default function CreatePage() {
   const [ticketPrice, setTicketPrice] = useState("");
   const [showTicketPrice, setShowTicketPrice] = useState(true);
   const [uploadedImages, setUploadedImages] = useState<string[]>([]);
-  const fileInputRef = useRef<HTMLInputElement>(null);
+  const previewFileInputRef = useRef<HTMLInputElement>(null);
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -101,19 +101,10 @@ export default function CreatePage() {
         <h1 className="text-2xl pt-20 font-black bg-gradient-to-r from-red-600 to-pink-600 bg-clip-text text-transparent">
           タイムテーブル作成
         </h1>
-        <button
-          onClick={() => setShowPreview(!showPreview)}
-          className={`px-5 mt-10py-2 rounded-full text-sm font-bold border transition ${
-            showPreview
-              ? "bg-red-500 text-white border-red-500"
-              : "bg-white text-red-500 border-red-400 hover:bg-red-50"
-          }`}
-        >
-          {showPreview ? "編集に戻る" : "プレビュー"}
-        </button>
+     
       </div>
 
-      <div className="max-w-screen-xl mx-auto px-4 py-8">
+      <div className="max-w-screen-xl mx-auto px-4 py-4">
         {!showPreview ? (
           /* 編集画面 */
           <div className="max-w-2xl mx-auto space-y-6">
@@ -165,52 +156,6 @@ export default function CreatePage() {
                     placeholder="例:1000 + (1drink600)"
                     min={0}
                   />
-                </div>
-              </div>
-              <div className="mb-4">
-                <label className="block text-xs font-semibold text-gray-500 mb-2">文字色</label>
-                <div className="flex flex-wrap gap-2 items-center">
-                  {TEXT_COLORS.map((c) => (
-                    <button
-                      key={c.value}
-                      onClick={() => setHeaderTextColor(c.value)}
-                      title={c.label}
-                      className={`w-7 h-7 rounded-full border-2 transition ${
-                        headerTextColor === c.value
-                          ? "border-red-500 ring-2 ring-red-300 scale-110"
-                          : "border-gray-300"
-                      }`}
-                      style={{ backgroundColor: c.value }}
-                    />
-                  ))}
-                  <div className="relative w-7 h-7" title="カスタム色">
-                    <input
-                      type="color"
-                      value={headerTextColor}
-                      onChange={(e) => setHeaderTextColor(e.target.value)}
-                      className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-                    />
-                    <div className="w-7 h-7 rounded-full border-2 border-dashed border-gray-400 flex items-center justify-center text-gray-400 text-xs font-bold pointer-events-none">
-                      +
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <label className="block text-xs font-semibold text-gray-500 mb-1">
-                  濃さ: <span className="text-red-500 font-bold">{headerTextOpacity}%</span>
-                </label>
-                <input
-                  type="range"
-                  min={10}
-                  max={100}
-                  value={headerTextOpacity}
-                  onChange={(e) => setHeaderTextOpacity(Number(e.target.value))}
-                  className="w-full accent-red-500"
-                />
-                <div className="flex justify-between text-xs text-gray-400 mt-0.5">
-                  <span>薄い (10%)</span>
-                  <span>濃い (100%)</span>
                 </div>
               </div>
             </div>
@@ -289,164 +234,23 @@ export default function CreatePage() {
               >
                 + 行を追加
               </button>
-              <div className="mt-4 pt-4 border-t border-gray-100">
-                <div className="mb-3">
-                  <label className="block text-xs font-semibold text-gray-500 mb-2">文字色</label>
-                  <div className="flex flex-wrap gap-2 items-center">
-                    {TEXT_COLORS.map((c) => (
-                      <button
-                        key={c.value}
-                        onClick={() => setTextColor(c.value)}
-                        title={c.label}
-                        className={`w-7 h-7 rounded-full border-2 transition ${
-                          textColor === c.value
-                            ? "border-red-500 ring-2 ring-red-300 scale-110"
-                            : "border-gray-300"
-                        }`}
-                        style={{ backgroundColor: c.value }}
-                      />
-                    ))}
-                    <div className="relative w-7 h-7" title="カスタム色">
-                      <input
-                        type="color"
-                        value={textColor}
-                        onChange={(e) => setTextColor(e.target.value)}
-                        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-                      />
-                      <div className="w-7 h-7 rounded-full border-2 border-dashed border-gray-400 flex items-center justify-center text-gray-400 text-xs font-bold pointer-events-none">
-                        +
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-gray-500 mb-1">
-                    濃さ: <span className="text-red-500 font-bold">{textOpacity}%</span>
-                  </label>
-                  <input
-                    type="range"
-                    min={10}
-                    max={100}
-                    value={textOpacity}
-                    onChange={(e) => setTextOpacity(Number(e.target.value))}
-                    className="w-full accent-red-500"
-                  />
-                  <div className="flex justify-between text-xs text-gray-400 mt-0.5">
-                    <span>薄い (10%)</span>
-                    <span>濃い (100%)</span>
-                  </div>
-                </div>
-              </div>
             </div>
 
-            {/* 背景設定 */}
-            <div className="bg-white rounded-2xl shadow p-6">
-              <h2 className="text-base font-bold text-gray-700 mb-4 border-b pb-2">背景設定</h2>
-              <div className="mb-4">
-                <label className="block text-xs font-semibold text-gray-500 mb-2">背景画像</label>
-                <div className="grid grid-cols-3 sm:grid-cols-5 gap-2">
-                  {BG_IMAGES.map((img) => (
-                    <button
-                      key={img.value}
-                      onClick={() => setBgImage(img.value)}
-                      className={`relative rounded-lg overflow-hidden border-2 transition ${
-                        bgImage === img.value
-                          ? "border-red-500 ring-2 ring-red-300"
-                          : "border-gray-200"
-                      }`}
-                      style={{ height: "60px" }}
-                    >
-                      <div
-                        className="absolute inset-0 bg-cover bg-center"
-                        style={{ backgroundImage: `url('${img.value}')` }}
-                      />
-                      <div className="absolute inset-0 bg-black/50 flex items-end p-0.5">
-                        <span className="text-white text-[10px] font-bold leading-tight">
-                          {img.label}
-                        </span>
-                      </div>
-                    </button>
-                  ))}
 
-                  {/* アップロード済み写真（複数対応） */}
-                  {uploadedImages.map((url, i) => (
-                    <button
-                      key={url}
-                      onClick={() => setBgImage(url)}
-                      className={`relative rounded-lg overflow-hidden border-2 transition ${
-                        bgImage === url
-                          ? "border-red-500 ring-2 ring-red-300"
-                          : "border-gray-200"
-                      }`}
-                      style={{ height: "60px" }}
-                    >
-                      <div
-                        className="absolute inset-0 bg-cover bg-center"
-                        style={{ backgroundImage: `url('${url}')` }}
-                      />
-                      <div className="absolute inset-0 bg-black/50 flex items-end p-0.5">
-                        <span className="text-white text-[10px] font-bold leading-tight">
-                          写真{i + 1}
-                        </span>
-                      </div>
-                    </button>
-                  ))}
 
-                  {/* 写真追加ボタン */}
-                  <button
-                    onClick={() => fileInputRef.current?.click()}
-                    className="relative rounded-lg border-2 border-dashed border-gray-300 hover:border-red-400 hover:bg-red-50 transition flex flex-col items-center justify-center gap-0.5"
-                    style={{ height: "60px" }}
-                  >
-                    <span className="text-2xl text-gray-400 leading-none">+</span>
-                    <span className="text-[10px] text-gray-400 font-semibold text-center px-1">
-                      写真を選ぶ
-                    </span>
-                  </button>
-                  <input
-                    ref={fileInputRef}
-                    type="file"
-                    accept="image/*"
-                    className="hidden"
-                    onChange={handleImageUpload}
-                  />
-                </div>
-              </div>
-              <div>
-                <label className="block text-xs font-semibold text-gray-500 mb-1">
-                  透明度: <span className="text-red-500 font-bold">{bgOpacity}%</span>
-                </label>
-                <input
-                  type="range"
-                  min={0}
-                  max={100}
-                  value={bgOpacity}
-                  onChange={(e) => setBgOpacity(Number(e.target.value))}
-                  className="w-full accent-red-500"
-                />
-                <div className="flex justify-between text-xs text-gray-400 mt-0.5">
-                  <span>透明 (0%)</span>
-                  <span>不透明 (100%)</span>
-                </div>
-              </div>
-            </div>
-
-          
 
             <button
-              onClick={() => setShowPreview(true)}
+              onClick={() => { setShowPreview(true); window.scrollTo({ top: 0, behavior: "smooth" }); }}
               className="w-full py-4 bg-gradient-to-r from-red-500 to-pink-500 text-white text-lg font-black rounded-2xl shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-200"
             >
-              プレビューを見る
+              タイムテーブルを見る
             </button>
           </div>
         ) : (
           /* プレビュー画面 */
           <div className="max-w-2xl mx-auto">
             <section className="py-10 relative overflow-hidden">
-              <h2 className="text-4xl md:text-6xl font-black text-center mb-10 bg-gradient-to-r from-red-600 via-pink-600 to-red-600 bg-clip-text text-transparent">
-                TIME TABLE
-              </h2>
+             
 
               <div className="relative overflow-hidden">
                 {/* 背景画像 */}
@@ -501,6 +305,125 @@ export default function CreatePage() {
                 </div>
               </div>
             </section>
+
+            {/* スタイル設定 */}
+            <div className="bg-white rounded-2xl shadow p-5 space-y-5 mt-4">
+              <h3 className="text-base font-bold text-gray-700 pb-2 border-b">スタイル設定</h3>
+
+              {/* 基本設定 文字色・濃さ */}
+              <div>
+                <h4 className="text-xs font-bold text-gray-500 mb-3 uppercase tracking-wide">基本設定テキスト</h4>
+                <div className="mb-3">
+                  <label className="block text-xs text-gray-500 mb-2">文字色</label>
+                  <div className="flex flex-wrap gap-2 items-center">
+                    {TEXT_COLORS.map((c) => (
+                      <button
+                        key={c.value}
+                        onClick={() => setHeaderTextColor(c.value)}
+                        title={c.label}
+                        className={`w-7 h-7 rounded-full border-2 transition ${
+                          headerTextColor === c.value ? "border-red-500 ring-2 ring-red-300 scale-110" : "border-gray-300"
+                        }`}
+                        style={{ backgroundColor: c.value }}
+                      />
+                    ))}
+                    <div className="relative w-7 h-7" title="カスタム色">
+                      <input type="color" value={headerTextColor} onChange={(e) => setHeaderTextColor(e.target.value)} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
+                      <div className="w-7 h-7 rounded-full border-2 border-dashed border-gray-400 flex items-center justify-center text-gray-400 text-xs font-bold pointer-events-none">+</div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-xs text-gray-500 mb-1">
+                    濃さ: <span className="text-red-500 font-bold">{headerTextOpacity}%</span>
+                  </label>
+                  <input type="range" min={10} max={100} value={headerTextOpacity} onChange={(e) => setHeaderTextOpacity(Number(e.target.value))} className="w-full accent-red-500" />
+                </div>
+              </div>
+
+              {/* タイムテーブル 文字色・濃さ */}
+              <div>
+                <h4 className="text-xs font-bold text-gray-500 mb-3 uppercase tracking-wide">タイムテーブルテキスト</h4>
+                <div className="mb-3">
+                  <label className="block text-xs text-gray-500 mb-2">文字色</label>
+                  <div className="flex flex-wrap gap-2 items-center">
+                    {TEXT_COLORS.map((c) => (
+                      <button
+                        key={c.value}
+                        onClick={() => setTextColor(c.value)}
+                        title={c.label}
+                        className={`w-7 h-7 rounded-full border-2 transition ${
+                          textColor === c.value ? "border-red-500 ring-2 ring-red-300 scale-110" : "border-gray-300"
+                        }`}
+                        style={{ backgroundColor: c.value }}
+                      />
+                    ))}
+                    <div className="relative w-7 h-7" title="カスタム色">
+                      <input type="color" value={textColor} onChange={(e) => setTextColor(e.target.value)} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
+                      <div className="w-7 h-7 rounded-full border-2 border-dashed border-gray-400 flex items-center justify-center text-gray-400 text-xs font-bold pointer-events-none">+</div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-xs text-gray-500 mb-1">
+                    濃さ: <span className="text-red-500 font-bold">{textOpacity}%</span>
+                  </label>
+                  <input type="range" min={10} max={100} value={textOpacity} onChange={(e) => setTextOpacity(Number(e.target.value))} className="w-full accent-red-500" />
+                </div>
+              </div>
+
+              {/* 背景設定 */}
+              <div>
+                <h4 className="text-xs font-bold text-gray-500 mb-3 uppercase tracking-wide">背景</h4>
+                <div className="grid grid-cols-4 sm:grid-cols-6 gap-2 mb-3">
+                  {BG_IMAGES.map((img) => (
+                    <button
+                      key={img.value}
+                      onClick={() => setBgImage(img.value)}
+                      className={`relative rounded-lg overflow-hidden border-2 transition ${
+                        bgImage === img.value ? "border-red-500 ring-2 ring-red-300" : "border-gray-200"
+                      }`}
+                      style={{ height: "50px" }}
+                    >
+                      <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('${img.value}')` }} />
+                      <div className="absolute inset-0 bg-black/50 flex items-end p-0.5">
+                        <span className="text-white text-[9px] font-bold leading-tight">{img.label}</span>
+                      </div>
+                    </button>
+                  ))}
+                  {uploadedImages.map((url, i) => (
+                    <button
+                      key={url}
+                      onClick={() => setBgImage(url)}
+                      className={`relative rounded-lg overflow-hidden border-2 transition ${
+                        bgImage === url ? "border-red-500 ring-2 ring-red-300" : "border-gray-200"
+                      }`}
+                      style={{ height: "50px" }}
+                    >
+                      <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('${url}')` }} />
+                      <div className="absolute inset-0 bg-black/50 flex items-end p-0.5">
+                        <span className="text-white text-[9px] font-bold leading-tight">写真{i + 1}</span>
+                      </div>
+                    </button>
+                  ))}
+                  <button
+                    onClick={() => previewFileInputRef.current?.click()}
+                    className="relative rounded-lg border-2 border-dashed border-gray-300 hover:border-red-400 hover:bg-red-50 transition flex flex-col items-center justify-center gap-0.5"
+                    style={{ height: "50px" }}
+                  >
+                    <span className="text-xl text-gray-400 leading-none">+</span>
+                    <span className="text-[9px] text-gray-400 font-semibold">写真</span>
+                  </button>
+                  <input ref={previewFileInputRef} type="file" accept="image/*" className="hidden" onChange={handleImageUpload} />
+                </div>
+                <div>
+                  <label className="block text-xs text-gray-500 mb-1">
+                    透明度: <span className="text-red-500 font-bold">{bgOpacity}%</span>
+                  </label>
+                  <input type="range" min={0} max={100} value={bgOpacity} onChange={(e) => setBgOpacity(Number(e.target.value))} className="w-full accent-red-500" />
+                </div>
+              </div>
+            </div>
 
             <button
               onClick={() => setShowPreview(false)}
