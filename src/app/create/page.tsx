@@ -21,18 +21,41 @@ const BG_IMAGES = [
   { label: "openlive", value: "/openlive.jpg" },
 ];
 
+const TEXT_COLORS = [
+  { label: "白", value: "#ffffff" },
+  { label: "黒", value: "#000000" },
+  { label: "グレー", value: "#374151" },
+  { label: "赤", value: "#ef4444" },
+  { label: "ピンク", value: "#ec4899" },
+  { label: "黄", value: "#facc15" },
+  { label: "青", value: "#3b82f6" },
+];
+
+const hexToRgba = (hex: string, alpha: number) => {
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b = parseInt(hex.slice(5, 7), 16);
+  return `rgba(${r}, ${g}, ${b}, ${alpha / 100})`;
+};
+
 const DEFAULT_ROWS: TimeTableRow[] = [
   { time: "11:30", bandName: "", university: "" },
 ];
 
 export default function CreatePage() {
-  const [title, setTitle] = useState("1年生ライブ");
-  const [eventInfo, setEventInfo] = useState("2/19 (土) @ LIVE SPOT WOW! TICKET: ¥1000 + (1drink600)");
+  const [title, setTitle] = useState("");
+  const [eventInfo, setEventInfo] = useState("");
   const [bgImage, setBgImage] = useState(BG_IMAGES[0].value);
   const [bgOpacity, setBgOpacity] = useState(50);
   const [rows, setRows] = useState<TimeTableRow[]>(DEFAULT_ROWS);
   const [showPreview, setShowPreview] = useState(false);
   const [showUniversity, setShowUniversity] = useState(true);
+  const [textColor, setTextColor] = useState("#000000");
+  const [textOpacity, setTextOpacity] = useState(100);
+  const [headerTextColor, setHeaderTextColor] = useState("#000000");
+  const [headerTextOpacity, setHeaderTextOpacity] = useState(100);
+  const [ticketPrice, setTicketPrice] = useState("");
+  const [showTicketPrice, setShowTicketPrice] = useState(true);
   const [uploadedImages, setUploadedImages] = useState<string[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -105,10 +128,10 @@ export default function CreatePage() {
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-400"
-                  placeholder="例: 1年生ライブ"
+                  placeholder="例:オープンライブ"
                 />
               </div>
-              <div>
+              <div className="mb-4">
                 <label className="block text-xs font-semibold text-gray-500 mb-1">イベント情報</label>
                 <input
                   type="text"
@@ -117,6 +140,202 @@ export default function CreatePage() {
                   className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-400"
                   placeholder="例: 2/19 (土) @ LIVE SPOT WOW!"
                 />
+              </div>
+              <div className="mb-4">
+                <div className="flex items-center justify-between mb-1">
+                  <label className="block text-xs font-semibold text-gray-500">チケット料金</label>
+                  <button
+                    onClick={() => setShowTicketPrice(!showTicketPrice)}
+                    className={`px-3 py-1 rounded-full text-xs font-bold border transition ${
+                      showTicketPrice
+                        ? "bg-gray-100 text-gray-500 border-gray-300 hover:bg-gray-200"
+                        : "bg-red-500 text-white border-red-500 hover:bg-red-600"
+                    }`}
+                  >
+                    {showTicketPrice ? "非表示にする" : "表示する"}
+                  </button>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-sm text-gray-500 font-bold">¥</span>
+                  <input
+                    type="number"
+                    value={ticketPrice}
+                    onChange={(e) => setTicketPrice(e.target.value)}
+                    className="flex-1 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-400"
+                    placeholder="例:1000 + (1drink600)"
+                    min={0}
+                  />
+                </div>
+              </div>
+              <div className="mb-4">
+                <label className="block text-xs font-semibold text-gray-500 mb-2">文字色</label>
+                <div className="flex flex-wrap gap-2 items-center">
+                  {TEXT_COLORS.map((c) => (
+                    <button
+                      key={c.value}
+                      onClick={() => setHeaderTextColor(c.value)}
+                      title={c.label}
+                      className={`w-7 h-7 rounded-full border-2 transition ${
+                        headerTextColor === c.value
+                          ? "border-red-500 ring-2 ring-red-300 scale-110"
+                          : "border-gray-300"
+                      }`}
+                      style={{ backgroundColor: c.value }}
+                    />
+                  ))}
+                  <div className="relative w-7 h-7" title="カスタム色">
+                    <input
+                      type="color"
+                      value={headerTextColor}
+                      onChange={(e) => setHeaderTextColor(e.target.value)}
+                      className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                    />
+                    <div className="w-7 h-7 rounded-full border-2 border-dashed border-gray-400 flex items-center justify-center text-gray-400 text-xs font-bold pointer-events-none">
+                      +
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <label className="block text-xs font-semibold text-gray-500 mb-1">
+                  濃さ: <span className="text-red-500 font-bold">{headerTextOpacity}%</span>
+                </label>
+                <input
+                  type="range"
+                  min={10}
+                  max={100}
+                  value={headerTextOpacity}
+                  onChange={(e) => setHeaderTextOpacity(Number(e.target.value))}
+                  className="w-full accent-red-500"
+                />
+                <div className="flex justify-between text-xs text-gray-400 mt-0.5">
+                  <span>薄い (10%)</span>
+                  <span>濃い (100%)</span>
+                </div>
+              </div>
+            </div>
+
+              {/* タイムテーブル */}
+            <div className="bg-white rounded-2xl shadow px-1 py-3">
+              <div className="flex items-center justify-between mb-4 border-b pb-2">
+                <h2 className="text-base font-bold text-gray-700">タイムテーブル</h2>
+                <button
+                  onClick={() => setShowUniversity(!showUniversity)}
+                  className={`px-3 py-1 rounded-full text-xs font-bold border transition ${
+                    showUniversity
+                      ? "bg-gray-100 text-gray-500 border-gray-300 hover:bg-gray-200"
+                      : "bg-red-500 text-white border-red-500 hover:bg-red-600"
+                  }`}
+                >
+                  {showUniversity ? "大学名を隠す" : "大学名を表示"}
+                </button>
+              </div>
+              <div className="space-y-3">
+                {rows.map((row, index) => (
+                  /* スマホ・PC共通: 横並びグリッド */
+                  <div key={index} className={`grid gap-1 items-end md:gap-2 md:items-center border border-gray-200 rounded-xl px-2 py-2 md:border-0 md:p-0 md:rounded-none ${showUniversity ? "grid-cols-[1.5rem_3.5rem_1fr_4.5rem_1.5rem] md:grid-cols-[2rem_5rem_1fr_6rem_2rem]" : "grid-cols-[1.5rem_3.5rem_1fr_1.5rem] md:grid-cols-[2rem_5rem_1fr_2rem]"}`}>
+                    {/* 行番号 */}
+                    <span className="text-xs text-gray-400 font-semibold text-center self-center pt-4 md:pb-0">{index + 1}</span>
+                    {/* 時間 */}
+                    <div>
+                      <label className="block text-xs text-gray-400 mb-0.5">時間</label>
+                      <input
+                        type="text"
+                        value={row.time}
+                        onChange={(e) => updateRow(index, "time", e.target.value)}
+                        placeholder="11:30"
+                        className="w-full border border-gray-300 rounded-lg px-2 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-400 font-mono md:px-3 md:py-1.5"
+                      />
+                    </div>
+                    {/* バンド名 */}
+                    <div>
+                      <label className="block text-xs text-gray-400 mb-0.5">バンド名</label>
+                      <input
+                        type="text"
+                        value={row.bandName}
+                        onChange={(e) => updateRow(index, "bandName", e.target.value)}
+                        placeholder="バンド名"
+                        className="w-full border border-gray-300 rounded-lg px-2 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-400 md:px-3 md:py-1.5"
+                      />
+                    </div>
+                    {/* 大学名 */}
+                    {showUniversity && (
+                      <div>
+                        <label className="block text-xs text-gray-400 mb-0.5">大学名</label>
+                        <input
+                          type="text"
+                          value={row.university}
+                          onChange={(e) => updateRow(index, "university", e.target.value)}
+                          placeholder="大学名"
+                          className="w-full border border-gray-300 rounded-lg px-2 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-400 md:px-3 md:py-1.5"
+                        />
+                      </div>
+                    )}
+                    {/* 削除ボタン */}
+                    <button
+                      onClick={() => removeRow(index)}
+                      disabled={rows.length === 1}
+                      className="text-gray-300 hover:text-red-500 disabled:opacity-20 transition text-base font-bold leading-none text-center self-center pt-4 md:pb-0"
+                      aria-label="削除"
+                    >
+                      ✕
+                    </button>
+                  </div>
+                ))}
+              </div>
+              <button
+                onClick={addRow}
+                className="mt-4 w-full py-2 border-2 border-dashed border-gray-300 rounded-lg text-sm text-gray-400 hover:border-red-400 hover:text-red-500 transition font-semibold"
+              >
+                + 行を追加
+              </button>
+              <div className="mt-4 pt-4 border-t border-gray-100">
+                <div className="mb-3">
+                  <label className="block text-xs font-semibold text-gray-500 mb-2">文字色</label>
+                  <div className="flex flex-wrap gap-2 items-center">
+                    {TEXT_COLORS.map((c) => (
+                      <button
+                        key={c.value}
+                        onClick={() => setTextColor(c.value)}
+                        title={c.label}
+                        className={`w-7 h-7 rounded-full border-2 transition ${
+                          textColor === c.value
+                            ? "border-red-500 ring-2 ring-red-300 scale-110"
+                            : "border-gray-300"
+                        }`}
+                        style={{ backgroundColor: c.value }}
+                      />
+                    ))}
+                    <div className="relative w-7 h-7" title="カスタム色">
+                      <input
+                        type="color"
+                        value={textColor}
+                        onChange={(e) => setTextColor(e.target.value)}
+                        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                      />
+                      <div className="w-7 h-7 rounded-full border-2 border-dashed border-gray-400 flex items-center justify-center text-gray-400 text-xs font-bold pointer-events-none">
+                        +
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-gray-500 mb-1">
+                    濃さ: <span className="text-red-500 font-bold">{textOpacity}%</span>
+                  </label>
+                  <input
+                    type="range"
+                    min={10}
+                    max={100}
+                    value={textOpacity}
+                    onChange={(e) => setTextOpacity(Number(e.target.value))}
+                    className="w-full accent-red-500"
+                  />
+                  <div className="flex justify-between text-xs text-gray-400 mt-0.5">
+                    <span>薄い (10%)</span>
+                    <span>濃い (100%)</span>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -212,81 +431,7 @@ export default function CreatePage() {
               </div>
             </div>
 
-            {/* タイムテーブル */}
-            <div className="bg-white rounded-2xl shadow p-6">
-              <div className="flex items-center justify-between mb-4 border-b pb-2">
-                <h2 className="text-base font-bold text-gray-700">タイムテーブル</h2>
-                <button
-                  onClick={() => setShowUniversity(!showUniversity)}
-                  className={`px-3 py-1 rounded-full text-xs font-bold border transition ${
-                    showUniversity
-                      ? "bg-gray-100 text-gray-500 border-gray-300 hover:bg-gray-200"
-                      : "bg-red-500 text-white border-red-500 hover:bg-red-600"
-                  }`}
-                >
-                  {showUniversity ? "大学名を隠す" : "大学名を表示"}
-                </button>
-              </div>
-              <div className="space-y-3">
-                {rows.map((row, index) => (
-                  /* スマホ・PC共通: 横並びグリッド */
-                  <div key={index} className={`grid gap-1 items-end md:gap-2 md:items-center border border-gray-200 rounded-xl px-2 py-2 md:border-0 md:p-0 md:rounded-none ${showUniversity ? "grid-cols-[1.5rem_3.5rem_1fr_4.5rem_1.5rem] md:grid-cols-[2rem_5rem_1fr_6rem_2rem]" : "grid-cols-[1.5rem_3.5rem_1fr_1.5rem] md:grid-cols-[2rem_5rem_1fr_2rem]"}`}>
-                    {/* 行番号 */}
-                    <span className="text-xs text-gray-400 font-semibold text-center self-center pb-1 md:pb-0">{index + 1}</span>
-                    {/* 時間 */}
-                    <div>
-                      <label className="block text-xs text-gray-400 mb-0.5">時間</label>
-                      <input
-                        type="text"
-                        value={row.time}
-                        onChange={(e) => updateRow(index, "time", e.target.value)}
-                        placeholder="11:30"
-                        className="w-full border border-gray-300 rounded-lg px-2 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-400 font-mono md:px-3 md:py-1.5"
-                      />
-                    </div>
-                    {/* バンド名 */}
-                    <div>
-                      <label className="block text-xs text-gray-400 mb-0.5">バンド名</label>
-                      <input
-                        type="text"
-                        value={row.bandName}
-                        onChange={(e) => updateRow(index, "bandName", e.target.value)}
-                        placeholder="バンド名"
-                        className="w-full border border-gray-300 rounded-lg px-2 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-400 md:px-3 md:py-1.5"
-                      />
-                    </div>
-                    {/* 大学名 */}
-                    {showUniversity && (
-                      <div>
-                        <label className="block text-xs text-gray-400 mb-0.5">大学名</label>
-                        <input
-                          type="text"
-                          value={row.university}
-                          onChange={(e) => updateRow(index, "university", e.target.value)}
-                          placeholder="大学名"
-                          className="w-full border border-gray-300 rounded-lg px-2 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red-400 md:px-3 md:py-1.5"
-                        />
-                      </div>
-                    )}
-                    {/* 削除ボタン */}
-                    <button
-                      onClick={() => removeRow(index)}
-                      disabled={rows.length === 1}
-                      className="text-gray-300 hover:text-red-500 disabled:opacity-20 transition text-base font-bold leading-none text-center self-center pb-1 md:pb-0"
-                      aria-label="削除"
-                    >
-                      ✕
-                    </button>
-                  </div>
-                ))}
-              </div>
-              <button
-                onClick={addRow}
-                className="mt-4 w-full py-2 border-2 border-dashed border-gray-300 rounded-lg text-sm text-gray-400 hover:border-red-400 hover:text-red-500 transition font-semibold"
-              >
-                + 行を追加
-              </button>
-            </div>
+          
 
             <button
               onClick={() => setShowPreview(true)}
@@ -314,34 +459,38 @@ export default function CreatePage() {
                 />
 
                 {/* ヘッダー */}
-                <div className="z-10 relative m-2 text-red-500">
+                <div className="z-10 relative m-2" style={{ color: hexToRgba(headerTextColor, headerTextOpacity) }}>
                   <div className="flex flex-col justify-center items-center gap-2 pb-4">
                     <h3 className="text-2xl pt-4 text-center font-bold">{title}</h3>
                     <div className="text-sm md:text-lg font-semibold text-center">{eventInfo}</div>
+                    {showTicketPrice && ticketPrice && (
+                      <div className="text-sm font-bold text-center">
+                        TICKET: ¥{Number(ticketPrice).toLocaleString()}
+                      </div>
+                    )}
                   </div>
                 </div>
 
                 {/* テーブル */}
                 <div className="z-10 relative">
                   <table className="min-w-full">
-                    <tbody>
+                    <tbody style={{ color: hexToRgba(textColor, textOpacity) }}>
                       {rows.map((item, index) => (
                         <tr
                           key={index}
-                          className="hover:bg-gradient-to-r hover:from-red-50 hover:to-pink-50 transition-all duration-300 group border-b border-gray-200"
+                          className="border-b border-gray-200"
                         >
-                          <td className="px-2 py-3 whitespace-nowrap text-sm font-semibold text-gray-700 relative">
-                            <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-red-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                          <td className="px-2 py-3 whitespace-nowrap text-sm font-semibold relative">
                             <span className="font-mono">{item.time || "--:--"}</span>
                           </td>
-                          <td className="px-2 py-3 whitespace-nowrap text-base font-black text-black group-hover:text-red-700 transition-colors duration-300">
+                          <td className="px-2 py-3 whitespace-nowrap text-base font-black">
                             <div className="flex items-center space-x-2">
                               <div className="w-1 h-1 bg-red-500 rounded-full flex-shrink-0" />
                               <span>{item.bandName || "(バンド名)"}</span>
                             </div>
                           </td>
                           {showUniversity && (
-                            <td className="px-2 py-3 whitespace-nowrap text-sm font-bold text-gray-800 group-hover:text-pink-600 transition-colors duration-300">
+                            <td className="px-2 py-3 whitespace-nowrap text-sm font-bold">
                               {item.university || "(大学名)"}
                             </td>
                           )}
